@@ -200,10 +200,20 @@ h1 {
     
     .elfsight-countdown-value {
         font-size: 1.5rem;
+        color: #000000;
     }
     
     .elfsight-countdown-separator {
         font-size: 1.5rem;
+        color: #000000;
+    }
+    
+    .elfsight-countdown-label {
+        color: #000000;
+    }
+    
+    .elfsight-countdown-timer {
+        color: #000000;
     }
 }
 

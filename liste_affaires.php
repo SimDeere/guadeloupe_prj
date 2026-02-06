@@ -169,7 +169,7 @@ $liste_affaires = [
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<h2>Liste des affaires à emporter</h2>
+<h2 class="page-title">Liste des affaires à emporter</h2>
 
 <div class="liste-affaires">
     <?php foreach ($liste_affaires as $categorie => $items): ?>
@@ -196,6 +196,14 @@ $liste_affaires = [
 </div>
 
 <style>
+    /* Style pour le titre de la page */
+    .page-title {
+        color: white !important;
+        text-align: center;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    
     /* Styles généraux */
     * {
         -webkit-text-size-adjust: 100%;
