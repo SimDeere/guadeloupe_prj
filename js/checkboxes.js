@@ -61,8 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
  * Configure les écouteurs d'événements pour toutes les cases à cocher
  */
 function setupCheckboxListeners() {
-    // Sélectionner toutes les cases à cocher dans la liste des affaires
-    const checkboxes = document.querySelectorAll('.table-affaires input[type="checkbox"]');
+    // Sélectionner toutes les cases à cocher dans la liste des affaires avec la classe item-checkbox
+    const checkboxes = document.querySelectorAll('.item-checkbox');
+    
+    console.log('setupCheckboxListeners: Nombre de checkboxes trouvées:', checkboxes.length);
     
     // Ajouter un écouteur d'événement à chaque case à cocher
     // Note: Nous ne sauvegardons plus automatiquement lors du changement d'état
@@ -70,7 +72,8 @@ function setupCheckboxListeners() {
     checkboxes.forEach(function(checkbox) {
         checkbox.addEventListener('change', function() {
             // Aucune action automatique
-            console.log('Case à cocher modifiée, utilisez le bouton Sauvegarder pour enregistrer les changements');
+            console.log('Case à cocher modifiée:', this.id, '=', this.checked);
+            console.log('Utilisez le bouton Sauvegarder pour enregistrer les changements');
         });
     });
 }
@@ -89,14 +92,19 @@ function saveCheckboxStates() {
     // Sélectionner toutes les cases à cocher
     const checkboxes = document.querySelectorAll('.item-checkbox');
     
+    // Afficher un message de débogage pour voir les checkboxes sélectionnées
+    console.log('Nombre de checkboxes trouvées pour la sauvegarde:', checkboxes.length);
+    
     // Stocker l'état de chaque case à cocher
     checkboxes.forEach(function(checkbox) {
         // Utiliser l'ID de la case à cocher comme clé
         checkboxStates[checkbox.id] = checkbox.checked;
+        console.log('Sauvegarde de', checkbox.id, '=', checkbox.checked);
     });
     
     // Convertir l'objet en chaîne JSON
     const statesJSON = JSON.stringify(checkboxStates);
+    console.log('JSON à sauvegarder:', statesJSON);
     
     // Envoyer les données au serveur pour sauvegarde
     fetch('save_checkboxes.php', {
@@ -135,6 +143,9 @@ function loadCheckboxStates(person) {
         checkbox.checked = false;
     });
     
+    // Afficher un message de débogage pour voir les checkboxes sélectionnées
+    console.log('Nombre de checkboxes trouvées:', checkboxes.length);
+    
     // Charger les états depuis le serveur avec un timestamp pour éviter la mise en cache
     const timestamp = new Date().getTime();
     fetch('load_checkboxes.php?person=' + encodeURIComponent(person) + '&_=' + timestamp)
@@ -145,16 +156,22 @@ function loadCheckboxStates(person) {
             return response.json();
         })
         .then(data => {
+            console.log('Réponse du serveur:', data);
+            
             if (data.success && data.states) {
                 try {
                     // Convertir la chaîne JSON en objet
                     const checkboxStates = JSON.parse(data.states);
+                    console.log('États des checkboxes chargés:', checkboxStates);
                     
                     // Appliquer l'état à chaque case à cocher
                     for (const id in checkboxStates) {
                         const checkbox = document.getElementById(id);
                         if (checkbox) {
                             checkbox.checked = checkboxStates[id];
+                            console.log('Checkbox', id, 'définie à', checkboxStates[id]);
+                        } else {
+                            console.warn('Checkbox non trouvée:', id);
                         }
                     }
                     
