@@ -1,0 +1,169 @@
+/**
+ * Fond typique des Caraïbes pour le site Voyage en Guadeloupe
+ * Avec des couleurs évoquant la mer turquoise, le sable et la végétation tropicale
+ */
+
+/* Variables de couleurs des Caraïbes */
+:root {
+    --caribbean-blue: #00c3e3; /* Bleu turquoise des Caraïbes */
+    --deep-blue: #005c8f; /* Bleu profond de l'océan */
+    --sand-color: #f2d0a4; /* Couleur sable */
+    --tropical-green: #4cb944; /* Vert tropical */
+    --hibiscus-pink: #ff5a5f; /* Rose hibiscus */
+    --palm-green: #2a9d8f; /* Vert palmier */
+    --sunset-orange: #ff9a5c; /* Orange coucher de soleil */
+}
+
+/* Fond principal avec dégradé des couleurs des Caraïbes */
+body {
+    background: linear-gradient(
+        135deg, 
+        var(--caribbean-blue) 0%, 
+        #00d4f5 25%, 
+        #00a6e3 50%, 
+        var(--deep-blue) 100%
+    ) !important;
+    background-size: 400% 400% !important;
+    animation: caribbean-waves 15s ease infinite !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+}
+
+/* Animation du dégradé pour simuler les vagues */
+@keyframes caribbean-waves {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Overlay pour améliorer la lisibilité */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.65);
+    z-index: -1;
+}
+
+/* Éléments décoratifs: Palmiers */
+body::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%232a9d8f' opacity='0.2'%3E%3Cpath d='M50,10 C50,10 45,25 60,35 C75,45 65,60 50,70 C35,60 25,45 40,35 C55,25 50,10 50,10 Z'/%3E%3Cpath d='M50,10 L50,90'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom right;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+/* Fleurs d'hibiscus flottantes */
+.container::before {
+    content: "";
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    width: 100px;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23ff5a5f' opacity='0.3'%3E%3Cpath d='M50,20 C60,10 70,15 70,30 C85,30 90,40 80,50 C90,60 85,70 70,70 C70,85 60,90 50,80 C40,90 30,85 30,70 C15,70 10,60 20,50 C10,40 15,30 30,30 C30,15 40,10 50,20 Z'/%3E%3Ccircle cx='50' cy='50' r='10' fill='%23ffcc00'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+    animation: float-flower 20s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.container::after {
+    content: "";
+    position: fixed;
+    top: 15%;
+    right: 10%;
+    width: 80px;
+    height: 80px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23ff5a5f' opacity='0.3'%3E%3Cpath d='M50,20 C60,10 70,15 70,30 C85,30 90,40 80,50 C90,60 85,70 70,70 C70,85 60,90 50,80 C40,90 30,85 30,70 C15,70 10,60 20,50 C10,40 15,30 30,30 C30,15 40,10 50,20 Z'/%3E%3Ccircle cx='50' cy='50' r='10' fill='%23ffcc00'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+    animation: float-flower 25s ease-in-out infinite reverse;
+    opacity: 0.5;
+}
+
+/* Animation flottante pour les fleurs */
+@keyframes float-flower {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, 15px) rotate(5deg); }
+    50% { transform: translate(0, 25px) rotate(0deg); }
+    75% { transform: translate(-10px, 15px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Vagues au bas de la page */
+footer::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C150,40 350,0 500,20 C650,40 800,10 1000,30 C1100,40 1200,10 1200,10 L1200,30 L0,30 Z' fill='rgba(255,255,255,0.8)'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/* Bordures décoratives pour les éléments */
+.info-box {
+    border-left: 5px solid var(--caribbean-blue);
+    border-right: 5px solid var(--tropical-green);
+}
+
+table {
+    border-top: 4px solid var(--caribbean-blue);
+    border-bottom: 4px solid var(--tropical-green);
+}
+
+/* Amélioration des en-têtes de tableau */
+th {
+    background: linear-gradient(135deg, var(--caribbean-blue), var(--deep-blue));
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid var(--sand-color);
+}
+
+/* Amélioration des étiquettes de jour */
+.day-label {
+    background: linear-gradient(135deg, var(--sand-color), var(--tropical-green));
+    color: var(--deep-blue);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+/* Adaptation pour les appareils mobiles */
+@media (max-width: 768px) {
+    body::after {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .container::before,
+    .container::after {
+        width: 60px;
+        height: 60px;
+    }
+}

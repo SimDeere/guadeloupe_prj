@@ -1,6 +1,7 @@
 /**
  * Styles spécifiques pour les appareils mobiles
  * Optimisé pour les écrans de moins de 576px
+ * Avec adaptations pour le fond des Caraïbes
  */
 
 /* Optimisation du tableau pour mobile */
@@ -142,5 +143,48 @@ td:first-child .day-label {
     * {
         animation: none !important;
         transition: none !important;
+    }
+    
+    /* Optimisations pour le fond des Caraïbes sur mobile */
+    /* Réduire la taille des éléments décoratifs pour éviter l'encombrement */
+    @media (max-width: 576px) {
+        /* Ajuster les éléments décoratifs pour qu'ils soient moins intrusifs */
+        body::after {
+            width: 120px;
+            height: 120px;
+            bottom: 0;
+            right: 0;
+            opacity: 0.3;
+        }
+        
+        .container::before,
+        .container::after {
+            width: 50px;
+            height: 50px;
+            opacity: 0.4;
+        }
+        
+        /* Améliorer la lisibilité sur le fond */
+        .info-box, table {
+            background-color: rgba(255, 255, 255, 0.92);
+        }
+        
+        /* Renforcer les bordures décoratives pour plus de visibilité */
+        .info-box {
+            border-left-width: 4px;
+            border-right-width: 4px;
+        }
+        
+        /* Améliorer le contraste des étiquettes de jour */
+        .day-label {
+            font-weight: 700;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Optimiser l'animation du fond pour les performances */
+        @keyframes caribbean-waves {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
     }
 }

@@ -31,6 +31,9 @@ $page_title = isset($page_title) ? get_page_title($page_title) : get_page_title(
     <!-- Feuille de style principale -->
     <link rel="stylesheet" href="css/style.css">
     
+    <!-- Fond des Caraïbes -->
+    <link rel="stylesheet" href="css/caribbean-background.css">
+    
     <!-- Feuille de style spécifique à l'appareil -->
     <?php if (is_mobile()): ?>
     <link rel="stylesheet" href="css/mobile.css">
