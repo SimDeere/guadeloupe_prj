@@ -14,7 +14,7 @@ body {
     font-family: 'Poppins', sans-serif;
     color: var(--dark-text);
     background-color: #f0f8ff;
-    background-image: url('../images/background.jpg');
+    background-image: url('../images/caribbean-background.png');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
