@@ -1,9 +1,31 @@
 <?php
 /**
  * Page de liste des affaires à emporter pour le voyage en Guadeloupe
- * 
+ *
  * Cette page affiche la liste des affaires à emporter pour le voyage
  */
+
+// Fonction pour créer un ID valide à partir d'une chaîne
+function sanitize_id($string) {
+    // Remplacer les caractères spéciaux et les espaces par des tirets
+    $string = preg_replace('/[^a-zA-Z0-9]/', '-', $string);
+    // Convertir en minuscules
+    $string = strtolower($string);
+    // Supprimer les tirets multiples
+    $string = preg_replace('/-+/', '-', $string);
+    // Supprimer les tirets au début et à la fin
+    $string = trim($string, '-');
+    
+    return $string;
+}
+
+// Répertoire pour stocker les fichiers de sauvegarde
+$data_dir = 'data';
+
+// Vérifier si le répertoire existe, sinon le créer
+if (!is_dir($data_dir)) {
+    mkdir($data_dir, 0755, true);
+}
 
 // Définir le titre de la page
 $page_title = 'Liste des affaires à emporter';
@@ -144,6 +166,23 @@ $liste_affaires = [
 
 <h2>Liste des affaires à emporter</h2>
 
+<div class="person-selector">
+    <label for="person-select">Sélectionner une personne:</label>
+    <select id="person-select" name="person">
+        <option value="domie">Domie</option>
+        <option value="jo">Jo</option>
+        <option value="alba">Alba</option>
+        <option value="sosso">Sosso</option>
+        <option value="oliv">Oliv</option>
+        <option value="louisa">Louisa</option>
+        <option value="coco">Coco</option>
+        <option value="sim">Sim</option>
+        <option value="elo">Elo</option>
+        <option value="maden">Maden</option>
+        <option value="liz">Liz</option>
+    </select>
+</div>
+
 <div class="liste-affaires">
     <?php foreach ($liste_affaires as $categorie => $items): ?>
         <div class="categorie">
@@ -161,7 +200,13 @@ $liste_affaires = [
                         <tr>
                             <td><?php echo $item['nom']; ?></td>
                             <td class="quantite"><?php echo $item['nombre'] ? $item['nombre'] : '-'; ?></td>
-                            <td class="checkbox"><input type="checkbox"></td>
+                            <td class="checkbox">
+                                <input type="checkbox"
+                                       id="<?php echo sanitize_id($categorie . '-' . $item['nom']); ?>"
+                                       data-categorie="<?php echo sanitize_id($categorie); ?>"
+                                       data-item="<?php echo sanitize_id($item['nom']); ?>"
+                                       class="item-checkbox">
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -171,6 +216,29 @@ $liste_affaires = [
 </div>
 
 <style>
+    .person-selector {
+        margin-bottom: 20px;
+        background-color: var(--light-bg);
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .person-selector label {
+        margin-right: 10px;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+    
+    .person-selector select {
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: 1px solid var(--accent-color);
+        background-color: white;
+        font-size: 16px;
+        min-width: 150px;
+    }
+    
     .liste-affaires {
         display: -webkit-box;
         display: -webkit-flex;
@@ -242,6 +310,9 @@ $liste_affaires = [
         }
     }
 </style>
+
+<!-- Inclure le script de gestion des checkboxes -->
+<script src="js/checkboxes.js" defer></script>
 
 <?php
 // Inclure le pied de page
