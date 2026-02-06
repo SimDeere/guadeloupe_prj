@@ -68,6 +68,7 @@ $page_title = isset($page_title) ? get_page_title($page_title) : get_page_title(
     
     <!-- Scripts JavaScript -->
     <script src="js/main.js" defer></script>
+    <script src="js/countdown.js" defer></script>
     
     <style>
         /* Variables CSS pour les couleurs du thème */
@@ -84,6 +85,29 @@ $page_title = isset($page_title) ? get_page_title($page_title) : get_page_title(
 </head>
 <body class="<?php echo $device_class; ?>">
     <header>
+        <div id="countdown" class="countdown-container">
+            <div class="countdown-title">Décollage dans :</div>
+            <div class="countdown-timer">
+                <div class="countdown-block">
+                    <div id="countdown-days" class="countdown-value">00</div>
+                    <div class="countdown-label">Jours</div>
+                </div>
+                <div class="countdown-block">
+                    <div id="countdown-hours" class="countdown-value">00</div>
+                    <div class="countdown-label">Heures</div>
+                </div>
+                <div class="countdown-block">
+                    <div id="countdown-minutes" class="countdown-value">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-block">
+                    <div id="countdown-seconds" class="countdown-value">00</div>
+                    <div class="countdown-label">Secondes</div>
+                </div>
+            </div>
+            <div class="countdown-info">Vol du 14/02/2026 à 11h45</div>
+        </div>
+
         <h1><?php echo $site_config['site_title']; ?></h1>
         <p class="subtitle"><?php echo $site_config['site_subtitle']; ?></p>
         
