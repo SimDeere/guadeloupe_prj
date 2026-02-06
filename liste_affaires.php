@@ -166,30 +166,6 @@ $liste_affaires = [
 
 <h2>Liste des affaires à emporter</h2>
 
-<?php
-// Récupérer la personne sélectionnée depuis l'URL ou utiliser une valeur par défaut
-$selected_person = isset($_GET['person']) ? $_GET['person'] : 'domie';
-?>
-
-<div class="person-selector">
-    <label for="person-select">Sélectionner une personne:</label>
-    <select id="person-select" name="person">
-        <option value="domie" <?php echo $selected_person === 'domie' ? 'selected' : ''; ?>>Domie</option>
-        <option value="jo" <?php echo $selected_person === 'jo' ? 'selected' : ''; ?>>Jo</option>
-        <option value="alba" <?php echo $selected_person === 'alba' ? 'selected' : ''; ?>>Alba</option>
-        <option value="sosso" <?php echo $selected_person === 'sosso' ? 'selected' : ''; ?>>Sosso</option>
-        <option value="oliv" <?php echo $selected_person === 'oliv' ? 'selected' : ''; ?>>Oliv</option>
-        <option value="louisa" <?php echo $selected_person === 'louisa' ? 'selected' : ''; ?>>Louisa</option>
-        <option value="coco" <?php echo $selected_person === 'coco' ? 'selected' : ''; ?>>Coco</option>
-        <option value="sim" <?php echo $selected_person === 'sim' ? 'selected' : ''; ?>>Sim</option>
-        <option value="elo" <?php echo $selected_person === 'elo' ? 'selected' : ''; ?>>Elo</option>
-        <option value="maden" <?php echo $selected_person === 'maden' ? 'selected' : ''; ?>>Maden</option>
-        <option value="liz" <?php echo $selected_person === 'liz' ? 'selected' : ''; ?>>Liz</option>
-    </select>
-    <button id="load-button" type="button">Charger</button>
-    <button id="save-button" type="button">Sauvegarder</button>
-</div>
-
 <div class="liste-affaires">
     <?php foreach ($liste_affaires as $categorie => $items): ?>
         <div class="categorie">
@@ -199,7 +175,6 @@ $selected_person = isset($_GET['person']) ? $_GET['person'] : 'domie';
                     <tr>
                         <th>Article</th>
                         <th>Quantité</th>
-                        <th>Emporté</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -207,13 +182,6 @@ $selected_person = isset($_GET['person']) ? $_GET['person'] : 'domie';
                         <tr>
                             <td><?php echo $item['nom']; ?></td>
                             <td class="quantite"><?php echo $item['nombre'] ? $item['nombre'] : '-'; ?></td>
-                            <td class="checkbox">
-                                <input type="checkbox"
-                                       id="<?php echo sanitize_id($categorie . '-' . $item['nom']); ?>"
-                                       data-categorie="<?php echo sanitize_id($categorie); ?>"
-                                       data-item="<?php echo sanitize_id($item['nom']); ?>"
-                                       class="item-checkbox">
-                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -223,55 +191,6 @@ $selected_person = isset($_GET['person']) ? $_GET['person'] : 'domie';
 </div>
 
 <style>
-    .person-selector {
-        margin-bottom: 20px;
-        background-color: var(--light-bg);
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .person-selector label {
-        margin-right: 10px;
-        font-weight: bold;
-        color: var(--primary-color);
-    }
-    
-    .person-selector select {
-        padding: 8px 12px;
-        border-radius: 4px;
-        border: 1px solid var(--accent-color);
-        background-color: white;
-        font-size: 16px;
-        min-width: 150px;
-    }
-    
-    #load-button, #save-button {
-        margin-left: 10px;
-        padding: 8px 12px;
-        border-radius: 4px;
-        border: 1px solid var(--accent-color);
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-    }
-    
-    #load-button {
-        background-color: var(--primary-color);
-    }
-    
-    #save-button {
-        background-color: var(--green-color);
-    }
-    
-    #load-button:hover {
-        background-color: var(--secondary-color);
-    }
-    
-    #save-button:hover {
-        background-color: #2a8c2a;
-    }
-    
     .liste-affaires {
         display: -webkit-box;
         display: -webkit-flex;
@@ -323,29 +242,13 @@ $selected_person = isset($_GET['person']) ? $_GET['person'] : 'domie';
         width: 80px;
     }
     
-    .checkbox {
-        text-align: center;
-        width: 80px;
-    }
-    
-    .checkbox input[type="checkbox"] {
-        transform: scale(1.2);
-    }
-    
     @media (max-width: 768px) {
         .table-affaires th:nth-child(2),
         .table-affaires td:nth-child(2) {
             display: none;
         }
-        
-        .checkbox {
-            width: 50px;
-        }
     }
 </style>
-
-<!-- Inclure le script de gestion des checkboxes -->
-<script src="js/checkboxes.js" defer></script>
 
 <?php
 // Inclure le pied de page
