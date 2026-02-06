@@ -4,6 +4,9 @@
  * pour chaque personne du menu déroulant
  */
 
+// Variable pour stocker l'ID de l'intervalle de sauvegarde automatique
+let autoSaveInterval;
+
 document.addEventListener('DOMContentLoaded', function() {
     // Récupérer le sélecteur de personne
     const personSelect = document.getElementById('person-select');
@@ -18,7 +21,26 @@ document.addEventListener('DOMContentLoaded', function() {
     personSelect.addEventListener('change', function() {
         loadCheckboxStates(this.value);
     });
+    
+    // Démarrer la sauvegarde automatique toutes les 5 secondes
+    startAutoSave();
 });
+
+/**
+ * Démarre la sauvegarde automatique toutes les 5 secondes
+ */
+function startAutoSave() {
+    // Arrêter l'intervalle existant s'il y en a un
+    if (autoSaveInterval) {
+        clearInterval(autoSaveInterval);
+    }
+    
+    // Définir un nouvel intervalle pour sauvegarder toutes les 5 secondes
+    autoSaveInterval = setInterval(function() {
+        saveCheckboxStates();
+        console.log('Sauvegarde automatique effectuée');
+    }, 5000); // 5000 ms = 5 secondes
+}
 
 /**
  * Configure les écouteurs d'événements pour toutes les cases à cocher
