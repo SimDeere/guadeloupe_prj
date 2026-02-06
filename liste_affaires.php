@@ -166,20 +166,25 @@ $liste_affaires = [
 
 <h2>Liste des affaires à emporter</h2>
 
+<?php
+// Récupérer la personne sélectionnée depuis l'URL ou utiliser une valeur par défaut
+$selected_person = isset($_GET['person']) ? $_GET['person'] : 'domie';
+?>
+
 <div class="person-selector">
     <label for="person-select">Sélectionner une personne:</label>
     <select id="person-select" name="person">
-        <option value="domie">Domie</option>
-        <option value="jo">Jo</option>
-        <option value="alba">Alba</option>
-        <option value="sosso">Sosso</option>
-        <option value="oliv">Oliv</option>
-        <option value="louisa">Louisa</option>
-        <option value="coco">Coco</option>
-        <option value="sim">Sim</option>
-        <option value="elo">Elo</option>
-        <option value="maden">Maden</option>
-        <option value="liz">Liz</option>
+        <option value="domie" <?php echo $selected_person === 'domie' ? 'selected' : ''; ?>>Domie</option>
+        <option value="jo" <?php echo $selected_person === 'jo' ? 'selected' : ''; ?>>Jo</option>
+        <option value="alba" <?php echo $selected_person === 'alba' ? 'selected' : ''; ?>>Alba</option>
+        <option value="sosso" <?php echo $selected_person === 'sosso' ? 'selected' : ''; ?>>Sosso</option>
+        <option value="oliv" <?php echo $selected_person === 'oliv' ? 'selected' : ''; ?>>Oliv</option>
+        <option value="louisa" <?php echo $selected_person === 'louisa' ? 'selected' : ''; ?>>Louisa</option>
+        <option value="coco" <?php echo $selected_person === 'coco' ? 'selected' : ''; ?>>Coco</option>
+        <option value="sim" <?php echo $selected_person === 'sim' ? 'selected' : ''; ?>>Sim</option>
+        <option value="elo" <?php echo $selected_person === 'elo' ? 'selected' : ''; ?>>Elo</option>
+        <option value="maden" <?php echo $selected_person === 'maden' ? 'selected' : ''; ?>>Maden</option>
+        <option value="liz" <?php echo $selected_person === 'liz' ? 'selected' : ''; ?>>Liz</option>
     </select>
 </div>
 

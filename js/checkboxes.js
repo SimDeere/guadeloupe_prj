@@ -7,19 +7,29 @@
 // Variable pour stocker l'ID de l'intervalle de sauvegarde automatique
 let autoSaveInterval;
 
+// Variable pour suivre si les données ont été chargées
+let dataLoaded = false;
+
 document.addEventListener('DOMContentLoaded', function() {
     // Récupérer le sélecteur de personne
     const personSelect = document.getElementById('person-select');
     
     // Initialiser les cases à cocher avec les valeurs sauvegardées pour la personne sélectionnée
     loadCheckboxStates(personSelect.value);
+    dataLoaded = true;
     
     // Ajouter des écouteurs d'événements pour les changements de cases à cocher
     setupCheckboxListeners();
     
     // Ajouter un écouteur d'événement pour le changement de personne
     personSelect.addEventListener('change', function() {
-        loadCheckboxStates(this.value);
+        const selectedPerson = this.value;
+        loadCheckboxStates(selectedPerson);
+        
+        // Mettre à jour l'URL avec la personne sélectionnée
+        const url = new URL(window.location.href);
+        url.searchParams.set('person', selectedPerson);
+        window.history.replaceState({}, '', url);
     });
     
     // Démarrer la sauvegarde automatique toutes les 5 secondes
@@ -110,15 +120,23 @@ function saveCheckboxStates() {
  * @param {string} person - La personne sélectionnée
  */
 function loadCheckboxStates(person) {
+    console.log('Chargement des données pour: ' + person);
+    
     // Réinitialiser toutes les cases à cocher
     const checkboxes = document.querySelectorAll('.item-checkbox');
     checkboxes.forEach(function(checkbox) {
         checkbox.checked = false;
     });
     
-    // Charger les états depuis le serveur
-    fetch('load_checkboxes.php?person=' + encodeURIComponent(person))
-        .then(response => response.json())
+    // Charger les états depuis le serveur avec un timestamp pour éviter la mise en cache
+    const timestamp = new Date().getTime();
+    fetch('load_checkboxes.php?person=' + encodeURIComponent(person) + '&_=' + timestamp)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur réseau: ' + response.status);
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.success && data.states) {
                 try {
@@ -139,6 +157,8 @@ function loadCheckboxStates(person) {
                 }
             } else if (!data.success) {
                 console.error('Erreur lors du chargement des états des cases à cocher:', data.error);
+            } else {
+                console.log('Aucune donnée sauvegardée pour ' + person);
             }
         })
         .catch(error => {
