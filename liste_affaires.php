@@ -194,18 +194,25 @@ $liste_affaires = [
     .liste-affaires {
         display: -webkit-box;
         display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -webkit-flex-direction: column;
+        -ms-flex-direction: column;
         flex-direction: column;
         gap: 30px;
+        -webkit-gap: 30px;
     }
     
     .categorie {
         background-color: var(--light-bg);
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
         border-radius: 8px;
         padding: 15px;
+        -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
