@@ -89,25 +89,13 @@ $page_title = isset($page_title) ? get_page_title($page_title) : get_page_title(
             <div class="elfsight-countdown-inline">
                 <div class="elfsight-countdown-text">Décollage pour la Guadeloupe dans</div>
                 <div class="elfsight-countdown-timer">
-                    <div class="elfsight-countdown-item">
-                        <div id="countdown-days" class="elfsight-countdown-value">00</div>
-                        <div class="elfsight-countdown-label">J</div>
-                    </div>
-                    <div class="elfsight-countdown-separator">:</div>
-                    <div class="elfsight-countdown-item">
-                        <div id="countdown-hours" class="elfsight-countdown-value">00</div>
-                        <div class="elfsight-countdown-label">H</div>
-                    </div>
-                    <div class="elfsight-countdown-separator">:</div>
-                    <div class="elfsight-countdown-item">
-                        <div id="countdown-minutes" class="elfsight-countdown-value">00</div>
-                        <div class="elfsight-countdown-label">M</div>
-                    </div>
-                    <div class="elfsight-countdown-separator">:</div>
-                    <div class="elfsight-countdown-item">
-                        <div id="countdown-seconds" class="elfsight-countdown-value">00</div>
-                        <div class="elfsight-countdown-label">S</div>
-                    </div>
+                    <span id="countdown-days" class="elfsight-countdown-value">00</span><span class="elfsight-countdown-label">J</span>
+                    <span class="elfsight-countdown-separator"> : </span>
+                    <span id="countdown-hours" class="elfsight-countdown-value">00</span><span class="elfsight-countdown-label">H</span>
+                    <span class="elfsight-countdown-separator"> : </span>
+                    <span id="countdown-minutes" class="elfsight-countdown-value">00</span><span class="elfsight-countdown-label">M</span>
+                    <span class="elfsight-countdown-separator"> : </span>
+                    <span id="countdown-seconds" class="elfsight-countdown-value">00</span><span class="elfsight-countdown-label">S</span>
                 </div>
                 <div class="elfsight-countdown-info">(Vol du 14/02/2026 à 11h45)</div>
             </div>

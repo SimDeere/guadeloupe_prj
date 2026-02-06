@@ -107,69 +107,51 @@ h1 {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     justify-content: center;
     -webkit-box-align: center;
     -webkit-align-items: center;
     align-items: center;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
 }
 
 .elfsight-countdown-text {
     font-size: 1.1rem;
     font-weight: 600;
-    margin-right: 10px;
 }
 
 .elfsight-countdown-info {
     font-size: 0.8rem;
     opacity: 0.8;
-    margin-left: 10px;
 }
 
 .elfsight-countdown-timer {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-}
-
-.elfsight-countdown-item {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: baseline;
-    -webkit-align-items: baseline;
-    align-items: baseline;
-    padding: 0 2px;
+    white-space: nowrap;
+    line-height: 1.5;
 }
 
 .elfsight-countdown-value {
     font-size: 1.8rem;
     font-weight: 700;
-    line-height: 1;
     color: white;
+    display: inline;
 }
 
 .elfsight-countdown-label {
-    font-size: 0.7rem;
-    margin-left: 2px;
-    opacity: 0.9;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline;
 }
 
 .elfsight-countdown-separator {
     font-size: 1.8rem;
     font-weight: 700;
-    line-height: 1;
-    padding: 0 2px;
+    display: inline;
 }
 
 .elfsight-countdown-message {
