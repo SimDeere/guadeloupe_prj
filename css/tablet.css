@@ -1,6 +1,7 @@
 /**
  * Styles spécifiques pour les tablettes
  * Optimisé pour les écrans entre 576px et 992px
+ * Avec adaptations pour le fond des Caraïbes
  */
 
 /* Ajustements pour les tablettes */
@@ -112,5 +113,36 @@ th, td {
     * {
         animation: none !important;
         transition: none !important;
+    }
+    
+    /* Optimisations pour le fond des Caraïbes sur tablette */
+    @media (min-width: 577px) and (max-width: 992px) {
+        /* Ajuster l'image de fond pour les tablettes */
+        body {
+            background-position: center center !important;
+        }
+        
+        /* Améliorer la lisibilité sur le fond */
+        .info-box, table {
+            background-color: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(3px);
+        }
+        
+        /* Renforcer l'overlay pour une meilleure lisibilité */
+        body::before {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Améliorer le contraste des étiquettes de jour */
+        .day-label {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+        
+        /* Optimisation pour l'orientation paysage */
+        @media (orientation: landscape) {
+            body::before {
+                background-color: rgba(255, 255, 255, 0.65);
+            }
+        }
     }
 }

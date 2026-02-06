@@ -1,6 +1,7 @@
 /**
  * Styles spécifiques pour les ordinateurs de bureau
  * Optimisé pour les écrans de plus de 992px
+ * Avec adaptations pour le fond des Caraïbes
  */
 
 /* Ajustements pour les grands écrans */
@@ -102,10 +103,44 @@ tr:hover {
     }
 }
 
+/* Optimisations pour le fond des Caraïbes sur desktop */
+@media (min-width: 993px) {
+    /* Ajuster l'image de fond pour les grands écrans */
+    body {
+        background-position: center center !important;
+    }
+    
+    /* Overlay légèrement plus transparent pour les grands écrans */
+    body::before {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Effet parallaxe subtil pour améliorer l'immersion */
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+    
+    /* Améliorer la lisibilité sur le fond */
+    .info-box, table {
+        background-color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(5px);
+    }
+    
+    /* Effet de profondeur pour les boîtes d'information */
+    .info-box {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Améliorer le contraste des étiquettes de jour */
+    .day-label {
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+}
+
 /* Mode sombre */
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #1a1a2e;
         color: #f0f0f0;
     }
     
@@ -119,7 +154,7 @@ tr:hover {
     }
     
     th {
-        background-color: #003566;
+        background: linear-gradient(135deg, #003566, #001845);
     }
     
     tr:nth-child(even) {
