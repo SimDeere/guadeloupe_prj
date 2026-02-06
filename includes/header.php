@@ -76,6 +76,12 @@ $page_title = isset($page_title) ? get_page_title($page_title) : get_page_title(
     <header>
         <h1><?php echo $site_config['site_title']; ?></h1>
         <p class="subtitle"><?php echo $site_config['site_subtitle']; ?></p>
+        
+        <nav class="main-nav">
+            <a href="index.php" class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">Planning</a>
+            <a href="liste_affaires.php" class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'liste_affaires.php' ? 'active' : ''; ?>">Liste des affaires</a>
+        </nav>
+        
         <div class="info-box">
             <h3>Informations pratiques</h3>
             <p><?php echo $site_config['logement']; ?></p>
