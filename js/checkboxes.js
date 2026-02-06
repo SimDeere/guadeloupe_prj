@@ -11,8 +11,9 @@ let autoSaveInterval;
 let dataLoaded = false;
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Récupérer le sélecteur de personne
+    // Récupérer le sélecteur de personne et le bouton de chargement
     const personSelect = document.getElementById('person-select');
+    const loadButton = document.getElementById('load-button');
     
     // Initialiser les cases à cocher avec les valeurs sauvegardées pour la personne sélectionnée
     loadCheckboxStates(personSelect.value);
@@ -24,12 +25,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ajouter un écouteur d'événement pour le changement de personne
     personSelect.addEventListener('change', function() {
         const selectedPerson = this.value;
-        loadCheckboxStates(selectedPerson);
         
         // Mettre à jour l'URL avec la personne sélectionnée
         const url = new URL(window.location.href);
         url.searchParams.set('person', selectedPerson);
         window.history.replaceState({}, '', url);
+        
+        // Note: Nous ne chargeons plus automatiquement les données ici
+        // pour laisser l'utilisateur cliquer sur le bouton de chargement
+    });
+    
+    // Ajouter un écouteur d'événement pour le bouton de chargement
+    loadButton.addEventListener('click', function() {
+        const selectedPerson = personSelect.value;
+        loadCheckboxStates(selectedPerson);
+        
+        // Afficher un message de confirmation
+        alert('Données chargées pour ' + selectedPerson);
     });
     
     // Démarrer la sauvegarde automatique toutes les 5 secondes

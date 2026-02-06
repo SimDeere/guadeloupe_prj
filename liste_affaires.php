@@ -186,6 +186,7 @@ $selected_person = isset($_GET['person']) ? $_GET['person'] : 'domie';
         <option value="maden" <?php echo $selected_person === 'maden' ? 'selected' : ''; ?>>Maden</option>
         <option value="liz" <?php echo $selected_person === 'liz' ? 'selected' : ''; ?>>Liz</option>
     </select>
+    <button id="load-button" type="button">Charger</button>
 </div>
 
 <div class="liste-affaires">
@@ -242,6 +243,21 @@ $selected_person = isset($_GET['person']) ? $_GET['person'] : 'domie';
         background-color: white;
         font-size: 16px;
         min-width: 150px;
+    }
+    
+    #load-button {
+        margin-left: 10px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: 1px solid var(--accent-color);
+        background-color: var(--primary-color);
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    #load-button:hover {
+        background-color: var(--secondary-color);
     }
     
     .liste-affaires {
