@@ -272,12 +272,30 @@ $liste_affaires = [
     .quantite {
         text-align: center;
         width: 80px;
+        display: table-cell !important; /* Forcer l'affichage en cellule de tableau */
+        visibility: visible !important; /* S'assurer que la colonne est visible */
     }
     
     @media (max-width: 768px) {
+        /* Supprimer la règle qui cache la colonne des quantités */
+        /*
         .table-affaires th:nth-child(2),
         .table-affaires td:nth-child(2) {
             display: none;
+        }
+        */
+        
+        /* Ajuster la taille des colonnes pour Safari iOS */
+        .table-affaires th:first-child,
+        .table-affaires td:first-child {
+            width: 70%;
+        }
+        
+        .table-affaires th:nth-child(2),
+        .table-affaires td:nth-child(2) {
+            width: 30%;
+            display: table-cell !important;
+            visibility: visible !important;
         }
     }
 </style>
