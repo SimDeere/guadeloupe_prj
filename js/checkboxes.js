@@ -4,16 +4,16 @@
  * pour chaque personne du menu déroulant
  */
 
-// Variable pour stocker l'ID de l'intervalle de sauvegarde automatique
-let autoSaveInterval;
-
 // Variable pour suivre si les données ont été chargées
 let dataLoaded = false;
 
+// Suppression de la variable autoSaveInterval qui n'est plus nécessaire
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Récupérer le sélecteur de personne et le bouton de chargement
+    // Récupérer le sélecteur de personne et les boutons
     const personSelect = document.getElementById('person-select');
     const loadButton = document.getElementById('load-button');
+    const saveButton = document.getElementById('save-button');
     
     // Initialiser les cases à cocher avec les valeurs sauvegardées pour la personne sélectionnée
     loadCheckboxStates(personSelect.value);
@@ -44,25 +44,18 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Données chargées pour ' + selectedPerson);
     });
     
-    // Démarrer la sauvegarde automatique toutes les 5 secondes
-    startAutoSave();
+    // Ajouter un écouteur d'événement pour le bouton de sauvegarde
+    saveButton.addEventListener('click', function() {
+        saveCheckboxStates();
+        
+        // Afficher un message de confirmation
+        alert('Données sauvegardées pour ' + personSelect.value);
+    });
+    
+    // Suppression de l'appel à startAutoSave() qui n'est plus nécessaire
 });
 
-/**
- * Démarre la sauvegarde automatique toutes les 5 secondes
- */
-function startAutoSave() {
-    // Arrêter l'intervalle existant s'il y en a un
-    if (autoSaveInterval) {
-        clearInterval(autoSaveInterval);
-    }
-    
-    // Définir un nouvel intervalle pour sauvegarder toutes les 5 secondes
-    autoSaveInterval = setInterval(function() {
-        saveCheckboxStates();
-        console.log('Sauvegarde automatique effectuée');
-    }, 5000); // 5000 ms = 5 secondes
-}
+// La fonction startAutoSave a été supprimée car nous utilisons maintenant un bouton de sauvegarde explicite
 
 /**
  * Configure les écouteurs d'événements pour toutes les cases à cocher
@@ -72,10 +65,12 @@ function setupCheckboxListeners() {
     const checkboxes = document.querySelectorAll('.table-affaires input[type="checkbox"]');
     
     // Ajouter un écouteur d'événement à chaque case à cocher
+    // Note: Nous ne sauvegardons plus automatiquement lors du changement d'état
+    // La sauvegarde se fait uniquement via le bouton "Sauvegarder"
     checkboxes.forEach(function(checkbox) {
         checkbox.addEventListener('change', function() {
-            // Sauvegarder l'état de toutes les cases à cocher
-            saveCheckboxStates();
+            // Aucune action automatique
+            console.log('Case à cocher modifiée, utilisez le bouton Sauvegarder pour enregistrer les changements');
         });
     });
 }
