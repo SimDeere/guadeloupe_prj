@@ -1,0 +1,116 @@
+/**
+ * Styles spécifiques pour les tablettes
+ * Optimisé pour les écrans entre 576px et 992px
+ */
+
+/* Ajustements pour les tablettes */
+.container {
+    padding: 15px;
+}
+
+header {
+    padding: 70px 20px;
+}
+
+h1 {
+    font-size: 2.3rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+}
+
+.info-box {
+    max-width: 85%;
+    padding: 18px;
+}
+
+/* Optimisations pour les tableaux sur tablette */
+table {
+    font-size: 0.95rem;
+    overflow-x: auto;
+    display: block; /* Pour permettre le défilement horizontal si nécessaire */
+}
+
+th, td {
+    padding: 12px;
+}
+
+/* Amélioration de la lisibilité des activités */
+.activity-group {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+}
+
+/* Optimisations pour l'orientation paysage sur tablette */
+@media (orientation: landscape) {
+    .container {
+        max-width: 90%;
+    }
+    
+    table {
+        display: table; /* Revenir à l'affichage normal en mode paysage */
+        width: 100%;
+    }
+    
+    /* Améliorer la disposition en mode paysage */
+    .info-box {
+        max-width: 70%;
+    }
+}
+
+/* Optimisations pour les tablettes plus petites (576px - 768px) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .info-box {
+        max-width: 90%;
+    }
+    
+    /* Ajustement du tableau pour les petites tablettes */
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* Améliorations pour les appareils tactiles */
+.touch-device {
+    /* Améliorer le défilement */
+    -webkit-overflow-scrolling: touch;
+    
+    /* Augmenter légèrement la taille des zones cliquables */
+    td, th {
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+}
+
+/* Optimisations pour les écrans à haute densité de pixels */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+        font-weight: 300;
+    }
+    
+    h1, h2, h3 {
+        font-weight: 600;
+    }
+}
+
+/* Amélioration de l'accessibilité */
+.warning {
+    padding: 6px 0;
+}
+
+/* Optimisations pour économiser la batterie */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

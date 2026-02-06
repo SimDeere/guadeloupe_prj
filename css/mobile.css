@@ -1,0 +1,146 @@
+/**
+ * Styles spécifiques pour les appareils mobiles
+ * Optimisé pour les écrans de moins de 576px
+ */
+
+/* Optimisation du tableau pour mobile */
+table, thead, tbody, th, td, tr {
+    display: block;
+}
+
+thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+tr {
+    margin-bottom: 15px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+td {
+    position: relative;
+    padding-left: 40%;
+    border: none;
+    border-bottom: 1px solid #eee;
+    min-height: 30px;
+}
+
+td:before {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 35%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Ajout des labels pour chaque cellule */
+td:nth-of-type(1):before { content: "Date"; }
+td:nth-of-type(2):before { content: "Matin"; }
+td:nth-of-type(3):before { content: "Midi"; }
+td:nth-of-type(4):before { content: "Après-midi"; }
+td:nth-of-type(5):before { content: "Soirée"; }
+
+/* Ajustement pour la première colonne */
+td:first-child {
+    font-weight: 600;
+    background-color: var(--primary-color);
+    color: white;
+    padding-left: 8px;
+    border-left: none;
+}
+
+td:first-child .day-label {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+/* Ajustements pour les icônes */
+.beach-icon::before, .food-icon::before, .activity-icon::before,
+.evening-icon::before, .travel-icon::before {
+    font-size: 1.2em;
+}
+
+/* Optimisations pour les très petits écrans */
+@media (max-width: 375px) {
+    td {
+        padding-left: 35%;
+        font-size: 0.8rem;
+    }
+}
+
+/* Optimisations pour l'orientation paysage sur mobile */
+@media (orientation: landscape) {
+    header {
+        padding: 30px 15px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .info-box {
+        padding: 10px;
+    }
+    
+    /* Améliorer la lisibilité en mode paysage */
+    td {
+        padding-left: 45%;
+    }
+}
+
+/* Améliorations pour les appareils tactiles */
+.touch-device {
+    /* Augmenter la taille des zones cliquables */
+    td, th {
+        padding: 12px 8px;
+    }
+    
+    .activity-group {
+        padding: 8px 0;
+    }
+    
+    /* Améliorer la lisibilité */
+    .info-box {
+        font-size: 0.95rem;
+    }
+}
+
+/* Optimisations pour les écrans à haute densité de pixels */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+        font-weight: 300;
+    }
+    
+    h1, h2, h3 {
+        font-weight: 600;
+    }
+}
+
+/* Amélioration de l'accessibilité */
+.time-label {
+    font-size: 0.95rem;
+}
+
+.warning {
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+
+/* Optimisations pour économiser la batterie */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

@@ -1,0 +1,383 @@
+/**
+ * Styles principaux pour le site Voyage en Guadeloupe
+ * Fichier CSS principal avec styles communs et responsive design
+ */
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-text);
+    background-color: #f0f8ff;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-overflow-scrolling: touch; /* Améliore le défilement sur iOS */
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Overlay pour améliorer la lisibilité */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                      url('../images/header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 30px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: padding 0.3s ease;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.info-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.info-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 30px 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e3f2fd;
+}
+
+td:first-child {
+    font-weight: 600;
+    color: var(--primary-color);
+    border-left: 4px solid var(--accent-color);
+}
+
+.time-label {
+    font-weight: 600;
+    color: var(--green-color);
+}
+
+.warning {
+    color: var(--red-color);
+    font-weight: 500;
+    padding: 5px 0;
+}
+
+.activity-group {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.activity-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.icon {
+    margin-right: 5px;
+    font-size: 1.1em;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    color: var(--dark-text);
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    max-width: 100%;
+}
+
+.day-label {
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* Icônes */
+.beach-icon::before {
+    content: "🏝️";
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.food-icon::before {
+    content: "🍴";
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.activity-icon::before {
+    content: "🚶";
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.evening-icon::before {
+    content: "🌙";
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.travel-icon::before {
+    content: "✈️";
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.flora-fauna {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+/* Classes pour les appareils tactiles */
+.touch-device table {
+    -webkit-overflow-scrolling: touch;
+}
+
+.touch-device table.active-touch {
+    box-shadow: 0 0 15px rgba(0, 119, 182, 0.5);
+}
+
+/* Animations et transitions */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Utilitaires */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+/* Debug info */
+.debug-info {
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Media Queries pour différentes tailles d'écran */
+/* Ces styles seront complétés par les fichiers CSS spécifiques à chaque appareil */
+
+/* Grands écrans et desktop */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Tablettes et écrans moyens */
+@media (max-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .info-box {
+        max-width: 80%;
+    }
+}
+
+/* Petites tablettes et grands téléphones */
+@media (max-width: 768px) {
+    .container {
+        max-width: 720px;
+        padding: 15px;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+        font-size: 0.9rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    header {
+        padding: 60px 20px;
+    }
+    
+    .info-box {
+        max-width: 90%;
+        padding: 15px;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* Téléphones mobiles */
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    header {
+        padding: 40px 15px;
+    }
+    
+    .info-box {
+        max-width: 100%;
+        margin: 15px auto;
+        padding: 12px;
+    }
+    
+    table {
+        font-size: 0.85rem;
+    }
+    
+    th, td {
+        padding: 8px;
+    }
+    
+    footer {
+        padding: 15px;
+        margin-top: 20px;
+        font-size: 0.85rem;
+    }
+    
+    .flora-fauna {
+        font-size: 0.9rem;
+        gap: 5px;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 375px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .activity-group {
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+    }
+}
