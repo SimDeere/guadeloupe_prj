@@ -13,7 +13,7 @@ $site_config = [
     'site_author' => 'Voyageurs Guadeloupe',
     
     // Informations pratiques
-    'logement' => 'Logement à Sainte-Anne près du restaurant "A ka bidou"',
+    'logement' => 'Logement à Sainte-Anne"',
     'transport' => '3 voitures de location • 11 personnes (6 adultes, 5 enfants)',
     
     // Paramètres techniques

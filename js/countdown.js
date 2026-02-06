@@ -1,5 +1,5 @@
 /**
- * Décompte horaire pour le voyage en Guadeloupe
+ * Décompte horaire style Elfsight pour le voyage en Guadeloupe
  * Affiche le temps restant avant le décollage de l'avion
  */
 
@@ -18,8 +18,8 @@ function updateCountdown() {
     
     // Si la date est passée
     if (diff < 0) {
-        document.getElementById('countdown').innerHTML = 
-            '<div class="countdown-message">Bon voyage en Guadeloupe !</div>';
+        document.getElementById('countdown').innerHTML =
+            '<div class="elfsight-countdown-message">Bon voyage en Guadeloupe !</div>';
         return;
     }
     
@@ -29,11 +29,22 @@ function updateCountdown() {
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
     
-    // Mise à jour du HTML
+    // Mise à jour du HTML avec animation pour les secondes
     document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
     document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
     document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
-    document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+    
+    // Animation spéciale pour les secondes
+    const secondsElement = document.getElementById('countdown-seconds');
+    secondsElement.textContent = seconds.toString().padStart(2, '0');
+    
+    // Ajouter une classe pour l'animation de pulse si les secondes changent
+    if (seconds === 0 || seconds === 59) {
+        secondsElement.classList.add('pulse-animation');
+        setTimeout(() => {
+            secondsElement.classList.remove('pulse-animation');
+        }, 900);
+    }
 }
 
 /**

@@ -85,27 +85,32 @@ $page_title = isset($page_title) ? get_page_title($page_title) : get_page_title(
 </head>
 <body class="<?php echo $device_class; ?>">
     <header>
-        <div id="countdown" class="countdown-container">
-            <div class="countdown-title">Décollage dans :</div>
-            <div class="countdown-timer">
-                <div class="countdown-block">
-                    <div id="countdown-days" class="countdown-value">00</div>
-                    <div class="countdown-label">Jours</div>
+        <div id="countdown" class="elfsight-countdown-container">
+            <div class="elfsight-countdown-header">
+                <div class="elfsight-countdown-title">Décollage pour la Guadeloupe</div>
+                <div class="elfsight-countdown-subtitle">Vol du 14/02/2026 à 11h45</div>
+            </div>
+            <div class="elfsight-countdown-timer">
+                <div class="elfsight-countdown-item">
+                    <div id="countdown-days" class="elfsight-countdown-value">00</div>
+                    <div class="elfsight-countdown-label">JOURS</div>
                 </div>
-                <div class="countdown-block">
-                    <div id="countdown-hours" class="countdown-value">00</div>
-                    <div class="countdown-label">Heures</div>
+                <div class="elfsight-countdown-separator">:</div>
+                <div class="elfsight-countdown-item">
+                    <div id="countdown-hours" class="elfsight-countdown-value">00</div>
+                    <div class="elfsight-countdown-label">HEURES</div>
                 </div>
-                <div class="countdown-block">
-                    <div id="countdown-minutes" class="countdown-value">00</div>
-                    <div class="countdown-label">Minutes</div>
+                <div class="elfsight-countdown-separator">:</div>
+                <div class="elfsight-countdown-item">
+                    <div id="countdown-minutes" class="elfsight-countdown-value">00</div>
+                    <div class="elfsight-countdown-label">MINUTES</div>
                 </div>
-                <div class="countdown-block">
-                    <div id="countdown-seconds" class="countdown-value">00</div>
-                    <div class="countdown-label">Secondes</div>
+                <div class="elfsight-countdown-separator">:</div>
+                <div class="elfsight-countdown-item">
+                    <div id="countdown-seconds" class="elfsight-countdown-value">00</div>
+                    <div class="elfsight-countdown-label">SECONDES</div>
                 </div>
             </div>
-            <div class="countdown-info">Vol du 14/02/2026 à 11h45</div>
         </div>
 
         <h1><?php echo $site_config['site_title']; ?></h1>
