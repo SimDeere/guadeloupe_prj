@@ -164,6 +164,11 @@ $liste_affaires = [
 ];
 ?>
 
+<!-- Méta-balises spécifiques pour Safari iOS -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
 <h2>Liste des affaires à emporter</h2>
 
 <div class="liste-affaires">
@@ -191,6 +196,12 @@ $liste_affaires = [
 </div>
 
 <style>
+    /* Styles généraux */
+    * {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+    
     .liste-affaires {
         display: -webkit-box;
         display: -webkit-flex;
@@ -201,8 +212,11 @@ $liste_affaires = [
         -webkit-flex-direction: column;
         -ms-flex-direction: column;
         flex-direction: column;
-        gap: 30px;
-        -webkit-gap: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .liste-affaires > .categorie {
+        margin-bottom: 30px;
     }
     
     .categorie {
@@ -214,6 +228,7 @@ $liste_affaires = [
         -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        overflow: hidden; /* Pour éviter les débordements */
     }
     
     .categorie h3 {
@@ -227,17 +242,27 @@ $liste_affaires = [
     .table-affaires {
         width: 100%;
         border-collapse: collapse;
+        table-layout: fixed; /* Pour éviter les problèmes de mise en page sur Safari iOS */
     }
     
     .table-affaires th {
         text-align: left;
         padding: 8px;
         border-bottom: 1px solid var(--accent-color);
+        font-size: 14px; /* Taille de police réduite pour éviter les superpositions */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     
     .table-affaires td {
         padding: 8px;
         border-bottom: 1px solid #eee;
+        font-size: 14px; /* Taille de police réduite pour éviter les superpositions */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal; /* Permettre le retour à la ligne pour le contenu */
+        word-wrap: break-word; /* Permettre la césure des mots longs */
     }
     
     .table-affaires tr:last-child td {
