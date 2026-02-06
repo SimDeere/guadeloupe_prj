@@ -172,7 +172,12 @@ $liste_affaires = [
 
 <style>
     .liste-affaires {
+        display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
         flex-direction: column;
         gap: 30px;
     }

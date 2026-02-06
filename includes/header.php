@@ -23,6 +23,12 @@ $page_title = isset($page_title) ? get_page_title($page_title) : get_page_title(
     <?php echo get_responsive_meta_tags(); ?>
     <title><?php echo $page_title; ?></title>
     
+    <!-- Meta tags pour iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Voyage Guadeloupe">
+    <meta name="format-detection" content="telephone=no">
+    
     <!-- Préchargement des polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,9 +58,13 @@ $page_title = isset($page_title) ? get_page_title($page_title) : get_page_title(
     <meta property="og:description" content="<?php echo $site_config['site_description']; ?>">
     <meta property="og:type" content="website">
     
-    <!-- Favicon -->
+    <!-- Favicon et icônes pour iOS -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="167x167" href="images/favicon.ico">
     
     <!-- Scripts JavaScript -->
     <script src="js/main.js" defer></script>
