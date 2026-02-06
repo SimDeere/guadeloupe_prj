@@ -1,6 +1,6 @@
 /**
  * Fond typique des Caraïbes pour le site Voyage en Guadeloupe
- * Utilisant l'image de fond guadeloupe_theme_final.png
+ * Utilisant l'image de fond Caraibes.jpg
  */
 
 /* Variables de couleurs des Caraïbes */
@@ -16,7 +16,7 @@
 
 /* Fond principal avec l'image de plage des Caraïbes */
 body {
-    background-image: url('../images/caribbean-background.png') !important;
+    background-image: url('../images/Caraibes.jpg') !important;
     background-size: cover !important;
     background-attachment: fixed !important;
     background-position: center center !important;
