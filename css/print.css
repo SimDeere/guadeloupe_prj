@@ -1,0 +1,148 @@
+/**
+ * Styles d'impression pour le site Voyage en Guadeloupe
+ * Ce fichier contient les styles spécifiques pour l'impression des pages
+ */
+
+/* Réinitialisation pour l'impression */
+@media print {
+    /* Styles généraux pour l'impression */
+    body {
+        background-image: none !important;
+        background-color: white !important;
+        color: black !important;
+        font-size: 12pt;
+        line-height: 1.4;
+        margin: 0;
+        padding: 0;
+    }
+
+    body::before {
+        display: none !important;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Masquer les éléments non nécessaires pour l'impression */
+    .navbar, 
+    .nav-toggle,
+    .mobile-menu-overlay,
+    footer,
+    .no-print,
+    button,
+    .checkbox-controls,
+    .save-status {
+        display: none !important;
+    }
+
+    /* Styles pour l'en-tête */
+    header {
+        background-image: none !important;
+        background-color: white !important;
+        color: black !important;
+        padding: 10mm 0 5mm !important;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+    }
+
+    header h1 {
+        font-size: 24pt;
+        margin-bottom: 5mm;
+    }
+
+    /* Styles pour le planning */
+    .planning-container {
+        page-break-inside: avoid;
+        margin-bottom: 10mm;
+    }
+
+    .day-card {
+        break-inside: avoid;
+        margin-bottom: 10mm;
+        border: 1px solid #ccc;
+        padding: 5mm;
+    }
+
+    .day-header {
+        background-color: #f0f0f0 !important;
+        color: black !important;
+        padding: 3mm !important;
+        margin-bottom: 3mm;
+    }
+
+    .time-slot {
+        margin-bottom: 3mm;
+    }
+
+    .activity-item {
+        break-inside: avoid;
+        margin-bottom: 2mm;
+    }
+
+    /* Styles pour la liste d'affaires */
+    .liste-affaires-container {
+        page-break-inside: avoid;
+    }
+
+    .category-card {
+        break-inside: avoid;
+        margin-bottom: 10mm;
+        border: 1px solid #ccc;
+        padding: 5mm;
+    }
+
+    .category-header {
+        background-color: #f0f0f0 !important;
+        color: black !important;
+        padding: 3mm !important;
+        margin-bottom: 3mm;
+    }
+
+    .item-list {
+        margin-left: 5mm;
+    }
+
+    .item {
+        break-inside: avoid;
+        margin-bottom: 1mm;
+    }
+
+    /* Optimisations pour l'impression */
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 2mm;
+        text-align: left;
+    }
+
+    /* Forcer l'affichage des couleurs de fond */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
