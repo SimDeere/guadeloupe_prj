@@ -200,6 +200,31 @@ $liste_affaires = [
     * {
         -webkit-text-size-adjust: 100%;
         text-size-adjust: 100%;
+        color: inherit !important; /* Forcer la couleur héritée pour tous les éléments */
+    }
+    
+    /* Correction spécifique pour Safari iOS */
+    body *::before,
+    body *::after {
+        content: none !important; /* Supprimer tout contenu généré par ::before et ::after */
+        display: none !important;
+    }
+    
+    /* Correction spécifique pour le texte "matin" en blanc sur Safari iOS */
+    tr::before, tr::after,
+    td::before, td::after,
+    th::before, th::after {
+        content: none !important;
+        display: none !important;
+        color: inherit !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
+    /* Assurer que tous les textes héritent de la couleur correcte */
+    tr, td, th, span, div, p {
+        color: inherit !important;
+        -webkit-text-fill-color: inherit !important;
     }
     
     .liste-affaires {
