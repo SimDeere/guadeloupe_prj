@@ -9,7 +9,7 @@ $page_title = 'Planning - Version imprimable';
 // Inclure l'en-tête simplifié pour impression
 include 'includes/header_print.php';
 
-// Données du planning (copié depuis index.php)
+// Données du planning (copié exactement depuis index.php)
 $planning = [
     [
         'jour' => 1,
@@ -40,12 +40,254 @@ $planning = [
             ]
         ]
     ],
-    // Copier le reste des données du planning depuis index.php
-    // ...
+    [
+        'jour' => 2,
+        'date' => 'Dimanche 15 fév.',
+        'matin' => [
+            [
+                'type' => 'beach',
+                'description' => 'Détente à la Plage de la Caravelle à Sainte-Anne. Sable blanc et eaux calmes.'
+            ]
+        ],
+        'midi' => [
+            [
+                'type' => 'food',
+                'heure' => '12h00',
+                'description' => 'Déjeuner rapide à Sainte-Anne (Bokits ou accras sur le pouce).'
+            ]
+        ],
+        'apres_midi' => [
+            [
+                'type' => 'activity',
+                'heure' => '13h30',
+                'description' => 'Carnaval à Pointe-à-Pitre. C\'est une expérience intense et bruyante.'
+            ],
+            [
+                'type' => 'warning',
+                'description' => 'Conseil : Voir pour amener un siège pliant pour maman/enfant car on reste souvent debout longtemps.'
+            ]
+        ],
+        'soir' => [
+            [
+                'type' => 'evening',
+                'description' => 'Retour au calme à Sainte-Anne.'
+            ]
+        ]
+    ],
+    [
+        'jour' => 3,
+        'date' => 'Lundi 16 fév.',
+        'matin' => [
+            [
+                'type' => 'activity',
+                'heure' => '10h00',
+                'description' => 'RDV au Moule pour le Parapente.'
+            ],
+            [
+                'type' => 'beach',
+                'description' => 'Le reste du groupe profite de la Plage de l\'Autre Bord juste à côté.'
+            ]
+        ],
+        'midi' => [
+            [
+                'type' => 'food',
+                'description' => 'Déjeuner au Moule (Front de mer).'
+            ]
+        ],
+        'apres_midi' => [
+            [
+                'type' => 'activity',
+                'description' => 'Direction le Nord.'
+            ],
+            [
+                'type' => 'activity',
+                'description' => 'Arrêt photo au Cimetière de Morne-à-l\'Eau (échiquier noir et blanc).'
+            ],
+            [
+                'type' => 'activity',
+                'description' => 'Route jusqu\'à la Pointe de la Grande Vigie (falaises impressionnantes, peu de marche).'
+            ]
+        ],
+        'soir' => [
+            [
+                'type' => 'beach',
+                'description' => 'Bain de fin de journée à l\'Anse Bertrand ou retour par la côte Est.'
+            ]
+        ]
+    ],
+    [
+        'jour' => 4,
+        'date' => 'Mardi 17 fév.',
+        'matin' => [
+            [
+                'type' => 'activity',
+                'heure' => '10h30',
+                'description' => 'Réserve Cousteau (Bateau à fond de verre).'
+            ]
+        ],
+        'midi' => [
+            [
+                'type' => 'food',
+                'description' => 'Déjeuner sur la plage de Malendure.'
+            ]
+        ],
+        'apres_midi' => [
+            [
+                'type' => 'activity',
+                'description' => 'Remontée vers Deshaies. Arrêt à la Plage de Grande Anse.'
+            ],
+            [
+                'type' => 'warning',
+                'description' => 'Attention : Il peut y avoir des rouleaux. Sinon la plage de la Perle juste après, plus calme.'
+            ]
+        ],
+        'soir' => [
+            [
+                'type' => 'travel',
+                'description' => 'Retour : Par la route de la Traversée.'
+            ]
+        ]
+    ],
+    [
+        'jour' => 5,
+        'date' => 'Mercredi 18 fév.',
+        'matin' => [
+            [
+                'type' => 'activity',
+                'description' => 'Exploration de la Mangrove (Grand Cul-de-Sac Marin)'
+            ],
+            [
+                'type' => 'activity',
+                'description' => '<strong>Groupe Sportif</strong>: Kayak dans la mangrove.'
+            ],
+            [
+                'type' => 'activity',
+                'description' => '<strong>Groupe Doux</strong>: Excursion en bateau moteur avec skipper (départ de Morne-à-l\'Eau ou Petit-Canal).'
+            ]
+        ],
+        'midi' => [
+            [
+                'type' => 'food',
+                'description' => 'Pique-nique ou restaurant de poissons à Port-Louis.'
+            ]
+        ],
+        'apres_midi' => [
+            [
+                'type' => 'beach',
+                'description' => 'Plage du Souffleur à Port-Louis (magnifique, beaucoup d\'ombre).'
+            ]
+        ],
+        'soir' => [
+            [
+                'type' => 'activity',
+                'description' => 'Shopping : Boutiques de souvenirs au Moule ou à Sainte-Anne en fin de journée.'
+            ]
+        ]
+    ],
+    [
+        'jour' => 6,
+        'date' => 'Jeudi 19 fév.',
+        'matin' => [
+            [
+                'type' => 'travel',
+                'description' => 'Départ pour les Saintes avec la navette à Saint-François ou Trois-Rivières.'
+            ],
+            [
+                'type' => 'activity',
+                'description' => 'Activités : Visite du Fort Napoléon (attention, ça grimpe ! On pourra prendre une navette électrique/taxi sur place).'
+            ]
+        ],
+        'midi' => [],
+        'apres_midi' => [
+            [
+                'type' => 'beach',
+                'description' => 'Plage : Plage de Pompierre (baie calme et chèvres en liberté).'
+            ]
+        ],
+        'soir' => [
+            [
+                'type' => 'warning',
+                'description' => 'Note : C\'est une journée fatigante, prévoir de réserver les billets à l\'avance.'
+            ]
+        ]
+    ],
+    [
+        'jour' => 7,
+        'date' => 'Vendredi 20 fév.',
+        'matin' => [
+            [
+                'type' => 'activity',
+                'description' => 'Scission randonnée'
+            ],
+            [
+                'type' => 'activity',
+                'description' => '<strong>Groupe Sportif</strong> : Direction les Chutes du Carbet (la 2ème chute est accessible en 45 min aller-retour sur sentier aménagé). Le Saut de la Lézarde est glissant, sinon le Carbet pour la sécurité.'
+            ],
+            [
+                'type' => 'activity',
+                'description' => '<strong>Groupe Doux</strong> : Cascade aux Écrevisses sur la route de la Traversée (accessible en 5 min à pied, plat). Puis visite de la Maison de la Forêt ou du Jardin Botanique de Deshaies (magnifique et accessible).'
+            ]
+        ],
+        'midi' => [],
+        'apres_midi' => [
+            [
+                'type' => 'beach',
+                'description' => 'Regroupement à la Plage de Viard ou retour vers Saint-François pour la Pointe des Châteaux (très beau coucher de soleil, marche facile sur le plat, sauf la montée à la croix).'
+            ]
+        ],
+        'soir' => []
+    ],
+    [
+        'jour' => 8,
+        'date' => 'Samedi 21 fév.',
+        'matin' => [
+            [
+                'type' => 'activity',
+                'description' => 'Shopping final au Marché de Sainte-Anne (épices, paréos, souvenirs).'
+            ]
+        ],
+        'midi' => [
+            [
+                'type' => 'food',
+                'description' => 'Dernier repas les pieds dans l\'eau à Sainte-Anne.'
+            ]
+        ],
+        'apres_midi' => [
+            [
+                'type' => 'activity',
+                'heure' => '14h00',
+                'description' => 'Nettoyage des 3 voitures (Stations-service à proximité de l\'aéroport ou à Sainte-Anne).'
+            ],
+            [
+                'type' => 'travel',
+                'heure' => '15h30',
+                'description' => 'Dépose des véhicules près de l\'aéroport PTP.'
+            ]
+        ],
+        'soir' => [
+            [
+                'type' => 'travel',
+                'heure' => '18h00',
+                'description' => 'Décollage.'
+            ]
+        ]
+    ]
 ];
 
-// Inclure les données complètes du planning depuis le fichier original
-include 'includes/planning_data.php';
+// Informations sur la flore et la faune
+$flora_fauna = [
+    'flore' => ['🌺 Hibiscus', '🌴 Palmiers', '🍌 Bananiers', '🥥 Cocotiers'],
+    'faune' => ['🦎 Iguanes', '🐠 Poissons tropicaux', '🐢 Tortues marines', '🦜 Perroquets']
+];
+
+// Légende des icônes
+$legende = [
+    'beach' => 'Activités plage',
+    'food' => 'Repas',
+    'activity' => 'Visites et activités',
+    'evening' => 'Activités du soir',
+    'travel' => 'Déplacements'
+];
 ?>
 
 <div class="container print-container">
@@ -55,62 +297,95 @@ include 'includes/planning_data.php';
     </header>
 
     <main>
-        <div class="planning-container">
-            <?php foreach ($planning as $jour): ?>
-                <div class="day-card">
-                    <div class="day-header">
-                        <h2>Jour <?php echo $jour['jour']; ?> - <?php echo $jour['date']; ?></h2>
-                    </div>
-                    
-                    <?php if (!empty($jour['matin']) && is_array($jour['matin'])): ?>
-                        <div class="time-slot">
-                            <h3>Matin</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Matin</th>
+                    <th>Midi</th>
+                    <th>Après-midi</th>
+                    <th>Soirée</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($planning as $jour): ?>
+                <tr>
+                    <td>
+                        <span class="day-label">Jour <?php echo $jour['jour']; ?></span><br>
+                        <?php echo $jour['date']; ?>
+                    </td>
+                    <td>
+                        <?php if (!empty($jour['matin'])): ?>
                             <?php foreach ($jour['matin'] as $activite): ?>
-                                <div class="activity-item">
-                                    <strong><?php echo isset($activite['heure']) ? $activite['heure'] : ''; ?></strong>
-                                    <span><?php echo $activite['description']; ?></span>
+                                <div class="activity-group <?php echo $activite['type']; ?>-icon">
+                                    <?php if (isset($activite['heure'])): ?>
+                                        <span class="time-label"><?php echo $activite['heure']; ?> :</span>
+                                    <?php endif; ?>
+                                    <?php echo $activite['description']; ?>
                                 </div>
                             <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-                    
-                    <?php if (!empty($jour['midi']) && is_array($jour['midi'])): ?>
-                        <div class="time-slot">
-                            <h3>Midi</h3>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if (!empty($jour['midi'])): ?>
                             <?php foreach ($jour['midi'] as $activite): ?>
-                                <div class="activity-item">
-                                    <strong><?php echo isset($activite['heure']) ? $activite['heure'] : ''; ?></strong>
-                                    <span><?php echo $activite['description']; ?></span>
+                                <div class="activity-group <?php echo $activite['type']; ?>-icon">
+                                    <?php if (isset($activite['heure'])): ?>
+                                        <span class="time-label"><?php echo $activite['heure']; ?> :</span>
+                                    <?php endif; ?>
+                                    <?php echo $activite['description']; ?>
                                 </div>
                             <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-                    
-                    <?php if (!empty($jour['apres_midi']) && is_array($jour['apres_midi'])): ?>
-                        <div class="time-slot">
-                            <h3>Après-midi</h3>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if (!empty($jour['apres_midi'])): ?>
                             <?php foreach ($jour['apres_midi'] as $activite): ?>
-                                <div class="activity-item">
-                                    <strong><?php echo isset($activite['heure']) ? $activite['heure'] : ''; ?></strong>
-                                    <span><?php echo $activite['description']; ?></span>
-                                </div>
+                                <?php if ($activite['type'] === 'warning'): ?>
+                                    <div class="warning"><?php echo $activite['description']; ?></div>
+                                <?php else: ?>
+                                    <div class="activity-group <?php echo $activite['type']; ?>-icon">
+                                        <?php if (isset($activite['heure'])): ?>
+                                            <span class="time-label"><?php echo $activite['heure']; ?> :</span>
+                                        <?php endif; ?>
+                                        <?php echo $activite['description']; ?>
+                                    </div>
+                                <?php endif; ?>
                             <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-                    
-                    <?php if (!empty($jour['soir']) && is_array($jour['soir'])): ?>
-                        <div class="time-slot">
-                            <h3>Soir</h3>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if (!empty($jour['soir'])): ?>
                             <?php foreach ($jour['soir'] as $activite): ?>
-                                <div class="activity-item">
-                                    <strong><?php echo isset($activite['heure']) ? $activite['heure'] : ''; ?></strong>
-                                    <span><?php echo $activite['description']; ?></span>
-                                </div>
+                                <?php if ($activite['type'] === 'warning'): ?>
+                                    <div class="warning"><?php echo $activite['description']; ?></div>
+                                <?php else: ?>
+                                    <div class="<?php echo $activite['type']; ?>-icon">
+                                        <?php if (isset($activite['heure'])): ?>
+                                            <span class="time-label"><?php echo $activite['heure']; ?> :</span>
+                                        <?php endif; ?>
+                                        <?php echo $activite['description']; ?>
+                                    </div>
+                                <?php endif; ?>
                             <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <h3>Légende</h3>
+            <?php foreach ($legende as $type => $description): ?>
+            <p class="<?php echo $type; ?>-icon"><?php echo $description; ?></p>
             <?php endforeach; ?>
+        </div>
+
+        <div class="info-box" style="text-align: center;">
+            <h3>Flore et faune des Caraïbes</h3>
+            <p class="flora-fauna"><?php echo implode(' • ', $flora_fauna['flore']); ?></p>
+            <p class="flora-fauna"><?php echo implode(' • ', $flora_fauna['faune']); ?></p>
         </div>
     </main>
 
