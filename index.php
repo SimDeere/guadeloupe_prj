@@ -192,19 +192,24 @@ $planning = [
         'date' => 'Jeudi 19 fév.',
         'matin' => [
             [
-                'type' => 'travel',
-                'description' => 'Départ pour les Saintes avec la navette à Saint-François ou Trois-Rivières.'
+                'type' => 'beach',
+                'description' => 'Plage des Amandiers (Sainte-Rose): Elle offre beaucoup d\'ombre grâce à ses amandiers et dispose de carbets (tables abritées). Les eaux y sont calmes.'
             ],
             [
                 'type' => 'activity',
-                'description' => 'Activités : Visite du Fort Napoléon (attention, ça grimpe ! On pourra prendre une navette électrique/taxi sur place).'
+                'description' => 'Sinon activités : Écomusée CréoleArt (Sainte-Rose) - Écomusée proposant une balade dans un jardin médicinal et des expositions sur l\'histoire de la Guadeloupe. Accessible et très visuel pour les enfants'
             ]
         ],
-        'midi' => [],
+        'midi' => [
+            [
+                'type' => 'food',
+                'description' => 'Pique-nique ou restaurant sur le port de Sainte Rose.'
+            ]
+        ],
         'apres_midi' => [
             [
-                'type' => 'beach',
-                'description' => 'Plage : Plage de Pompierre (baie calme et chèvres en liberté).'
+                'type' => 'travel',
+                'description' => 'Excursion Bateau Saintes Rose: Rendez-vous 12h30 Port de Sainte Rose pour une excursion au sein de Grand Cul de Sac avec visite des Ilets.(https://www.bleublancvert.com/excursion-bateau-sainte-rose-guadeloupe)'
             ]
         ],
         'soir' => [
