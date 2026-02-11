@@ -161,7 +161,7 @@ $planning = [
             ],
             [
                 'type' => 'activity',
-                'description' => '<strong>Groupe Sportif</strong>: Kayak dans la mangrove.'
+                'description' => '<strong>Groupe Sportif</strong>: Kayak dans la mangrove. - <strong>9H</strong> <br>(https://www.checkyeti.com/fr/d/4237/30265)<br><strong>40 minutes trajet</strong>'
             ],
             [
                 'type' => 'activity',
