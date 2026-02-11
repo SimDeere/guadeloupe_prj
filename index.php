@@ -193,11 +193,11 @@ $planning = [
         'matin' => [
             [
                 'type' => 'beach',
-                'description' => 'Plage des Amandiers (Sainte-Rose): Elle offre beaucoup d\'ombre grâce à ses amandiers et dispose de carbets (tables abritées). Les eaux y sont calmes.'
+                'description' => 'Plage des Amandiers (Sainte-Rose): Elle offre beaucoup d\'ombre grâce à ses amandiers et dispose de carbets (tables abritées). <br>Les eaux y sont calmes.'
             ],
             [
                 'type' => 'activity',
-                'description' => 'Sinon activités : Écomusée CréoleArt (Sainte-Rose) - Écomusée proposant une balade dans un jardin médicinal et des expositions sur l\'histoire de la Guadeloupe. Accessible et très visuel pour les enfants'
+                'description' => 'Sinon activités : Écomusée CréoleArt (Sainte-Rose) - Écomusée proposant une balade dans un jardin médicinal et des expositions sur l\'histoire de la Guadeloupe. <br>Accessible et très visuel pour les enfants'
             ]
         ],
         'midi' => [
@@ -209,7 +209,7 @@ $planning = [
         'apres_midi' => [
             [
                 'type' => 'travel',
-                'description' => 'Excursion Bateau Saintes Rose: Rendez-vous 12h30 Port de Sainte Rose pour une excursion au sein de Grand Cul de Sac avec visite des Ilets.(https://www.bleublancvert.com/excursion-bateau-sainte-rose-guadeloupe)'
+                'description' => 'Excursion Bateau Saintes Rose: Rendez-vous 12h30 Port de Sainte Rose pour une excursion au sein de Grand Cul de Sac avec visite des Ilets.<br>(https://www.bleublancvert.com/excursion-bateau-sainte-rose-guadeloupe)'
             ]
         ],
         'soir' => []
@@ -224,11 +224,11 @@ $planning = [
             ],
             [
                 'type' => 'activity',
-                'description' => '<strong>Groupe Sportif</strong> : Direction les Chutes du Carbet (la 2ème chute est accessible en 45 min aller-retour sur sentier aménagé). Le Saut de la Lézarde est glissant, sinon le Carbet pour la sécurité.'
+                'description' => '<strong>Groupe Sportif</strong> : Direction les Chutes du Carbet (la 2ème chute est accessible en 45 min aller-retour sur sentier aménagé). <br>Le Saut de la Lézarde est glissant, sinon le Carbet pour la sécurité.'
             ],
             [
                 'type' => 'activity',
-                'description' => '<strong>Groupe Doux</strong> : Visite du Zoo de Guadeloupe (Bouillante), puis visite de la maison de la forêt avec la cascade aux écrevisses et retour vers Douville. Ensuite plage ou piscine de la maison (Sainte Anne).'
+                'description' => '<strong>Groupe Doux</strong> : Visite du Zoo de Guadeloupe (Bouillante), puis visite de la maison de la forêt avec la cascade aux écrevisses et retour vers Douville. <br>Ensuite plage ou piscine de la maison (Sainte Anne).'
             ]
         ],
         'midi' => [
