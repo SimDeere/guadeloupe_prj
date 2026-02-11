@@ -228,7 +228,7 @@ $planning = [
             ],
             [
                 'type' => 'activity',
-                'description' => '<strong>Groupe Doux</strong> : Visite du Zoo de Guadeloupe (Bouillante), puis visite de la maison de la forêt avec la cascade aux écrevisses et retour vers Douville.'\n'Ensuite plage ou piscine de la maison (Sainte Anne).'
+                'description' => '<strong>Groupe Doux</strong> : Visite du Zoo de Guadeloupe (Bouillante), puis visite de la maison de la forêt avec la cascade aux écrevisses et retour vers Douville. Ensuite plage ou piscine de la maison (Sainte Anne).'
             ]
         ],
         'midi' => [
