@@ -84,7 +84,7 @@ $planning = [
             [
                 'type' => 'activity',
                 'heure' => '10h00',
-                'description' => 'RDV au Moule pour le Parapente.'
+                'description' => 'RDV au Moule pour le Parapente Jody/Maden.'
             ],
             [
                 'type' => 'beach',
