@@ -84,7 +84,7 @@ $planning = [
             [
                 'type' => 'activity',
                 'heure' => '10h00',
-                'description' => 'RDV au Moule pour le Parapente Jody/Maden.'
+                'description' => '<strong style="color: blue;">ACTIVITÉE RESERVÉE</strong><br><br>RDV au Moule pour le Parapente Jody/Maden.'
             ],
             [
                 'type' => 'beach',
@@ -125,7 +125,7 @@ $planning = [
             [
                 'type' => 'activity',
                 'heure' => '10h30',
-                'description' => 'Réserve Cousteau (Bateau à fond de verre).'
+                'description' => '<strong style="color: blue;">ACTIVITÉE RESERVÉE</strong><br><br>Réserve Cousteau (Bateau à fond de verre).'
             ]
         ],
         'midi' => [
@@ -157,36 +157,31 @@ $planning = [
         'matin' => [
             [
                 'type' => 'activity',
-                'description' => 'Exploration de la Mangrove (Grand Cul-de-Sac Marin)'
+                'description' => 'Scission randonnée'
             ],
             [
                 'type' => 'activity',
-                'description' => '<strong>Groupe Sportif</strong>: Kayak dans la mangrove. - <strong>9H</strong> <br>(https://www.checkyeti.com/fr/d/4237/30265)<br><strong>40 minutes trajet</strong>'
+                'description' => '<strong>Groupe Sportif</strong> : Direction les Chutes du Carbet (la 2ème chute est accessible en 45 min aller-retour sur sentier aménagé). <br>Le Saut de la Lézarde est glissant, sinon le Carbet pour la sécurité.'
             ],
             [
                 'type' => 'activity',
-                'description' => '<strong>Groupe Doux</strong>: Excursion en bateau moteur avec skipper (départ de Morne-à-l\'Eau ou Petit-Canal).'
+                'description' => '<strong style="color: blue;">ACTIVITÉE RESERVÉE</strong><br><br><strong>Groupe Doux</strong> : Visite du Zoo de Guadeloupe (Bouillante), puis visite de la maison de la forêt avec la cascade aux écrevisses et retour vers Douville. <br> Ensuite plage ou piscine de la maison (Sainte Anne).'
             ]
         ],
         'midi' => [
             [
                 'type' => 'food',
-                'description' => 'Pique-nique ou restaurant de poissons à Port-Louis.'
+                'description' => 'Pique nique.'
             ]
         ],
         'apres_midi' => [
             [
                 'type' => 'beach',
-                'description' => 'Plage du Souffleur à Port-Louis (magnifique, beaucoup d\'ombre).'
+                'description' => 'Regroupement à la Plage de Viard ou retour vers Saint-François pour la Pointe des Châteaux (très beau coucher de soleil, marche facile sur le plat, sauf la montée à la croix).'
             ]
         ],
-        'soir' => [
-            [
-                'type' => 'activity',
-                'description' => 'Shopping : Boutiques de souvenirs au Moule ou à Sainte-Anne en fin de journée.'
-            ]
-        ]
-    ],
+        'soir' => []
+    ], 
     [
         'jour' => 6,
         'date' => 'Jeudi 19 fév.',
@@ -209,10 +204,15 @@ $planning = [
         'apres_midi' => [
             [
                 'type' => 'travel',
-                'description' => 'Excursion Bateau Saintes Rose: Rendez-vous 12h30 Port de Sainte Rose pour une excursion au sein de Grand Cul de Sac avec visite des Ilets.<br>(https://www.bleublancvert.com/excursion-bateau-sainte-rose-guadeloupe)'
+                'description' => '<strong style="color: blue;">ACTIVITÉE RESERVÉE</strong><br><br>Excursion Bateau Saintes Rose: Rendez-vous 12h30 Port de Sainte Rose pour une excursion au sein de Grand Cul de Sac avec visite des Ilets.<br>(https://www.bleublancvert.com/excursion-bateau-sainte-rose-guadeloupe)'
             ]
         ],
-        'soir' => []
+        'soir' => [
+            [
+                'type' => 'food',
+                'description' => 'Restaurant dégustation Langouste.'
+            ]
+        ]
     ],
     [
         'jour' => 7,
@@ -220,30 +220,35 @@ $planning = [
         'matin' => [
             [
                 'type' => 'activity',
-                'description' => 'Scission randonnée'
+                'description' => 'Exploration de la Mangrove (Grand Cul-de-Sac Marin)'
             ],
             [
                 'type' => 'activity',
-                'description' => '<strong>Groupe Sportif</strong> : Direction les Chutes du Carbet (la 2ème chute est accessible en 45 min aller-retour sur sentier aménagé). <br>Le Saut de la Lézarde est glissant, sinon le Carbet pour la sécurité.'
+                'description' => '<strong style="color: blue;">ACTIVITÉE RESERVÉE</strong><br><br><strong>Groupe Sportif</strong>: Kayak dans la mangrove. - <strong>9H</strong> <br>(https://www.checkyeti.com/fr/d/4237/30265)<br><strong>40 minutes trajet</strong>'
             ],
             [
                 'type' => 'activity',
-                'description' => '<strong>Groupe Doux</strong> : Visite du Zoo de Guadeloupe (Bouillante), puis visite de la maison de la forêt avec la cascade aux écrevisses et retour vers Douville. <br>Ensuite plage ou piscine de la maison (Sainte Anne).'
+                'description' => '<strong>Groupe Doux</strong>: Soit:<br>  Plage du souffleur<br>  La Plage de Babin (Morne-à-l\'Eau)<br>  Beauport, le Pays de la Canne (Port-Louis) (Petit train à travers champs canne à sucre).'
             ]
         ],
         'midi' => [
             [
                 'type' => 'food',
-                'description' => 'Pique nique.'
+                'description' => 'Pique-nique ou restaurant de poissons à Port-Louis.'
             ]
         ],
         'apres_midi' => [
             [
                 'type' => 'beach',
-                'description' => 'Regroupement à la Plage de Viard ou retour vers Saint-François pour la Pointe des Châteaux (très beau coucher de soleil, marche facile sur le plat, sauf la montée à la croix).'
+                'description' => 'Plage du Souffleur à Port-Louis (magnifique, beaucoup d\'ombre).'
             ]
         ],
-        'soir' => []
+        'soir' => [
+            [
+                'type' => 'activity',
+                'description' => 'Shopping : Boutiques de souvenirs au Moule ou à Sainte-Anne en fin de journée.'
+            ]
+        ]
     ],
     [
         'jour' => 8,
