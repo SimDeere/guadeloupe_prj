@@ -81,7 +81,7 @@ $planning = [
             [
                 'type' => 'activity',
                 'heure' => '10h00',
-                'description' => '<strong style="color: blue;">ACTIVITÉE RESERVÉE</strong><br><br>RDV au Moule pour le Parapente Jody/Maden.'
+                'description' => '<strong style="color: #EFBF04;">ACTIVITÉE RESERVÉE</strong><br><br>RDV au Moule pour le Parapente Jody/Maden.'
             ],
             [
                 'type' => 'beach',
@@ -122,7 +122,7 @@ $planning = [
             [
                 'type' => 'activity',
                 'heure' => '10h30',
-                'description' => '<strong style="color: blue;">ACTIVITÉE RESERVÉE</strong><br><br>Réserve Cousteau (Bateau à fond de verre).'
+                'description' => '<strong style="color: #EFBF04;">ACTIVITÉE RESERVÉE</strong><br><br>Réserve Cousteau (Bateau à fond de verre).'
             ]
         ],
         'midi' => [
@@ -162,7 +162,7 @@ $planning = [
             ],
             [
                 'type' => 'activity',
-                'description' => '<strong style="color: blue;">ACTIVITÉE RESERVÉE</strong><br><br><strong>Groupe Doux</strong> : Visite du Zoo de Guadeloupe (Bouillante), puis visite de la maison de la forêt avec la cascade aux écrevisses et retour vers Douville. <br> Ensuite plage ou piscine de la maison (Sainte Anne).'
+                'description' => '<strong style="color: #EFBF04;">ACTIVITÉE RESERVÉE</strong><br><br><strong>Groupe Doux</strong> : Visite du Zoo de Guadeloupe (Bouillante), puis visite de la maison de la forêt avec la cascade aux écrevisses et retour vers Douville. <br> Ensuite plage ou piscine de la maison (Sainte Anne).'
             ]
         ],
         'midi' => [
@@ -201,7 +201,7 @@ $planning = [
         'apres_midi' => [
             [
                 'type' => 'travel',
-                'description' => '<strong style="color: blue;">ACTIVITÉE RESERVÉE</strong><br><br>Excursion Bateau Saintes Rose: Rendez-vous 12h30 Port de Sainte Rose pour une excursion au sein de Grand Cul de Sac avec visite des Ilets.<br>(https://www.bleublancvert.com/excursion-bateau-sainte-rose-guadeloupe)'
+                'description' => '<strong style="color: #EFBF04;">ACTIVITÉE RESERVÉE</strong><br><br>Excursion Bateau Saintes Rose: Rendez-vous 12h30 Port de Sainte Rose pour une excursion au sein de Grand Cul de Sac avec visite des Ilets.<br>(https://www.bleublancvert.com/excursion-bateau-sainte-rose-guadeloupe)'
             ]
         ],
         'soir' => [
@@ -221,7 +221,7 @@ $planning = [
             ],
             [
                 'type' => 'activity',
-                'description' => '<strong style="color: blue;">ACTIVITÉE RESERVÉE</strong><br><br><strong>Groupe Sportif</strong>: Kayak dans la mangrove. - <strong>9H</strong> <br>(https://www.checkyeti.com/fr/d/4237/30265)<br><strong>40 minutes trajet</strong>'
+                'description' => '<strong style="color: #EFBF04;">ACTIVITÉE RESERVÉE</strong><br><br><strong>Groupe Sportif</strong>: Kayak dans la mangrove. - <strong>9H</strong> <br>(https://www.checkyeti.com/fr/d/4237/30265)<br><strong>40 minutes trajet</strong>'
             ],
             [
                 'type' => 'activity',
