@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Voyage Mayenne → Gibraltar — Planning 10 Jours</title>
+
+    <!-- Meta tags pour iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Gibraltar">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Préchargement des polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Feuilles de style du site -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/caribbean-background.css">
+    <link rel="stylesheet" href="css/desktop.css">
+
+    <!-- Meta SEO -->
+    <meta name="description" content="Planning de voyage en voiture Mayenne → Gibraltar, 10 jours, pour senior francophone.">
+    <meta name="author" content="Voyageurs Guadeloupe">
+
+    <style>
+        /* Variables CSS du thème (identiques au site principal) */
+        :root {
+            --primary-color: #0077b6;
+            --secondary-color: #00b4d8;
+            --accent-color: #ffd166;
+            --green-color: #2a9d8f;
+            --red-color: #e76f51;
+            --light-bg: #f8f9fa;
+            --dark-text: #264653;
+        }
+
+        /* Styles spécifiques à cette page */
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .day-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .day-card.gibraltar {
+            border-left-color: #c8102e; /* Rouge Gibraltar */
+        }
+
+        .day-card.retour {
+            border-left-color: var(--green-color);
+        }
+
+        .day-card h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .day-card.gibraltar h3 {
+            color: #c8102e;
+        }
+
+        .day-card.retour h3 {
+            color: var(--green-color);
+        }
+
+        .route-info {
+            background-color: rgba(0, 119, 182, 0.08);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+
+        .hotel-box {
+            background-color: rgba(255, 209, 102, 0.2);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .hotel-box strong {
+            color: var(--dark-text);
+        }
+
+        .visit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 6px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .visit-item:last-child {
+            border-bottom: none;
+        }
+
+        .visit-icon {
+            font-size: 1.1em;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background-color: rgba(42, 157, 143, 0.15);
+            color: var(--green-color);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 6px;
+        }
+
+        .price-tag.free {
+            background-color: rgba(42, 157, 143, 0.15);
+            color: var(--green-color);
+        }
+
+        .price-tag.paid {
+            background-color: rgba(231, 111, 81, 0.15);
+            color: var(--red-color);
+        }
+
+        .warning-box {
+            background-color: rgba(231, 111, 81, 0.1);
+            border-left: 4px solid var(--red-color);
+            border-radius: 0 8px 8px 0;
+            padding: 10px 15px;
+            margin: 10px 0;
+            color: var(--dark-text);
+        }
+
+        .warning-box strong {
+            color: var(--red-color);
+        }
+
+        .tip-box {
+            background-color: rgba(0, 180, 216, 0.1);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 0 8px 8px 0;
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+
+        .overview-table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .budget-table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .budget-total td {
+            background-color: rgba(0, 119, 182, 0.1) !important;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.05rem;
+        }
+
+        .checklist {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 20px 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist ul li {
+            padding: 7px 0;
+            border-bottom: 1px dashed #e0e0e0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checklist ul li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist ul li::before {
+            content: "☐";
+            font-size: 1.2em;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .phase-badge.aller {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .phase-badge.gibraltar {
+            background-color: #c8102e;
+            color: white;
+        }
+
+        .phase-badge.retour {
+            background-color: var(--green-color);
+            color: white;
+        }
+
+        .info-pratique-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .info-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 15px 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        }
+
+        .info-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card ul li {
+            padding: 4px 0;
+            font-size: 0.92rem;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .info-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .best-period {
+            background: linear-gradient(135deg, rgba(255, 209, 102, 0.3), rgba(0, 180, 216, 0.2));
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            border: 2px solid var(--accent-color);
+        }
+
+        /* Styles print */
+        .print-links {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .print-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9em;
+            border: 1px solid #ddd;
+            transition: all 0.2s ease;
+        }
+
+        .print-link:hover {
+            background-color: #e0e0e0;
+            border-color: #ccc;
+        }
+
+        @media print {
+            .print-links { display: none; }
+            .day-card { break-inside: avoid; }
+        }
+
+        @media (max-width: 576px) {
+            .info-pratique-grid {
+                grid-template-columns: 1fr;
+            }
+            .day-card {
+                padding: 15px;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body class="desktop">
+
+    <header>
+        <h1>🗺️ Mayenne → Gibraltar</h1>
+        <p class="subtitle">10 Jours en Voiture • Planning Complet</p>
+
+        <nav class="main-nav">
+            <a href="index.php" class="nav-item">🌴 Planning Guadeloupe</a>
+            <a href="liste_affaires.php" class="nav-item">🧳 Liste des affaires</a>
+            <a href="gibraltar.html" class="nav-item active">🇬🇮 Gibraltar</a>
+        </nav>
+
+        <div class="info-box">
+            <h3>ℹ️ Informations du voyage</h3>
+            <p>👤 Senior francophone, 70 ans &nbsp;|&nbsp; 🚗 Voiture personnelle</p>
+            <p>💶 Budget : Économique / Milieu de gamme &nbsp;|&nbsp; 📅 10 jours</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- VUE D'ENSEMBLE -->
+        <h2 class="section-title">📋 Vue d'ensemble du voyage</h2>
+        <div class="overview-table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jour</th>
+                        <th>Étape</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jour 1</td>
+                        <td>Mayenne → Bordeaux (~430 km)</td>
+                        <td><span class="phase-badge aller">🚗 Route aller</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jour 2</td>
+                        <td>Bordeaux → Burgos, Espagne (~500 km)</td>
+                        <td><span class="phase-badge aller">🚗 Route aller</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jour 3</td>
+                        <td>Burgos → Algésiras / La Línea (~900 km ou étape à Cordoue)</td>
+                        <td><span class="phase-badge aller">🚗 Route aller</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jour 4</td>
+                        <td>Gibraltar — Rocher + Singes</td>
+                        <td><span class="phase-badge gibraltar">🇬🇮 Visite</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jour 5</td>
+                        <td>Gibraltar — Grottes + Tunnels WWII</td>
+                        <td><span class="phase-badge gibraltar">🇬🇮 Visite</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jour 6</td>
+                        <td>Gibraltar — Europa Point + Shopping</td>
+                        <td><span class="phase-badge gibraltar">🇬🇮 Visite</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jour 7</td>
+                        <td>La Línea → Séville (~220 km)</td>
+                        <td><span class="phase-badge retour">🔄 Route retour</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jour 8</td>
+                        <td>Séville → Tolède (~530 km)</td>
+                        <td><span class="phase-badge retour">🔄 Route retour</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jour 9</td>
+                        <td>Tolède → Burgos → Bordeaux</td>
+                        <td><span class="phase-badge retour">🔄 Route retour</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jour 10</td>
+                        <td>Bordeaux → Mayenne (~430 km)</td>
+                        <td><span class="phase-badge retour">🏠 Retour maison</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ===== ALLER ===== -->
+        <h2 class="section-title">✈️ ALLER — Jours 1 à 3</h2>
+
+        <!-- JOUR 1 -->
+        <div class="day-card">
+            <span class="phase-badge aller">Aller</span>
+            <h3>🚗 JOUR 1 — Mayenne → Bordeaux <small style="font-weight:400; color:#666;">(~430 km, ~5h)</small></h3>
+
+            <div class="route-info">
+                <strong>🗺️ Itinéraire :</strong> Mayenne → Le Mans (A81) → Tours (A28/A10) → Poitiers → Bordeaux (A10)<br>
+                <strong>💶 Péages :</strong> ~25–30 € &nbsp;|&nbsp; <strong>☕ Pause recommandée</strong> à Poitiers
+            </div>
+
+            <div class="hotel-box">
+                <strong>🏨 Hôtel recommandé :</strong><br>
+                <div class="visit-item">
+                    <span class="visit-icon">⭐</span>
+                    <span><strong>Ibis Bordeaux Centre Mériadeck</strong> — 35 Cours du Maréchal Juin, 33000 Bordeaux <span class="price-tag paid">70–95 €/nuit</span></span>
+                </div>
+                <div class="visit-item">
+                    <span class="visit-icon">💡</span>
+                    <span>Alternative : <strong>B&B Hôtel Bordeaux Centre Gare Saint-Jean</strong> <span class="price-tag paid">55–70 €/nuit</span></span>
+                </div>
+            </div>
+
+            <strong>🏛️ Visites à Bordeaux (après-midi) :</strong>
+            <div class="visit-item">
+                <span class="visit-icon">🪞</span>
+                <span>Place de la Bourse &amp; Miroir d'eau <span class="price-tag free">gratuit</span></span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🛍️</span>
+                <span>Rue Sainte-Catherine (promenade) <span class="price-tag free">gratuit</span></span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">⛪</span>
+                <span>Cathédrale Saint-André <span class="price-tag free">gratuit</span></span>
+            </div>
+        </div>
+
+        <!-- JOUR 2 -->
+        <div class="day-card">
+            <span class="phase-badge aller">Aller</span>
+            <h3>🚗 JOUR 2 — Bordeaux → Burgos <small style="font-weight:400; color:#666;">(~500 km, ~5h30)</small></h3>
+
+            <div class="route-info">
+                <strong>🗺️ Itinéraire :</strong> Bordeaux → Bayonne (A63) → Irun/Hendaye (frontière) → Vitoria → Burgos (A-1)<br>
+                <strong>🇪🇺 Frontière :</strong> Passage libre (espace Schengen) &nbsp;|&nbsp; <strong>💶 Péages espagnols :</strong> ~10–15 €
+            </div>
+
+            <div class="hotel-box">
+                <strong>🏨 Hôtel recommandé :</strong><br>
+                <div class="visit-item">
+                    <span class="visit-icon">⭐</span>
+                    <span><strong>Ibis Burgos</strong> — Calle Vitoria, 69, 09004 Burgos <span class="price-tag paid">65–85 €/nuit</span></span>
+                </div>
+            </div>
+
+            <strong>🏛️ Visite à Burgos (soirée) :</strong>
+            <div class="visit-item">
+                <span class="visit-icon">⛪</span>
+                <span>Cathédrale de Burgos (UNESCO) <span class="price-tag paid">~7 €</span> — audioguide en français disponible</span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🏛️</span>
+                <span>Arco de Santa María <span class="price-tag free">gratuit</span></span>
+            </div>
+        </div>
+
+        <!-- JOUR 3 -->
+        <div class="day-card">
+            <span class="phase-badge aller">Aller</span>
+            <h3>🚗 JOUR 3 — Burgos → Algésiras <small style="font-weight:400; color:#666;">(~900 km)</small></h3>
+
+            <div class="warning-box">
+                <strong>⚠️ Étape longue !</strong> Option recommandée pour un senior : faire une nuit à <strong>Cordoue</strong> (~640 km, ~6h) et décaler Gibraltar au Jour 5.
+            </div>
+
+            <div class="hotel-box">
+                <strong>🏨 Hôtel à Algésiras (trajet direct) :</strong><br>
+                <div class="visit-item">
+                    <span class="visit-icon">⭐</span>
+                    <span><strong>Ibis Algeciras</strong> <span class="price-tag paid">60–75 €/nuit</span></span>
+                </div>
+                <div class="visit-item">
+                    <span class="visit-icon">💡</span>
+                    <span>Alternative : <strong>Hotel Reina Cristina</strong> — Paseo de la Conferencia, Algésiras <span class="price-tag paid">80–110 €/nuit</span></span>
+                </div>
+            </div>
+
+            <div class="hotel-box" style="border-left-color: var(--green-color); background-color: rgba(42,157,143,0.08);">
+                <strong>🏨 Hôtel à Cordoue (option recommandée) :</strong><br>
+                <div class="visit-item">
+                    <span class="visit-icon">⭐</span>
+                    <span><strong>Ibis Córdoba</strong> — Avenida de la Libertad, 16, 14004 Córdoba <span class="price-tag paid">65–85 €/nuit</span></span>
+                </div>
+            </div>
+
+            <strong>🏛️ Visite à Cordoue :</strong>
+            <div class="visit-item">
+                <span class="visit-icon">🕌</span>
+                <span>La Mezquita-Cathédrale <span class="price-tag paid">~13 €</span> — audioguide en français disponible</span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🏘️</span>
+                <span>Quartier juif (Judería) <span class="price-tag free">gratuit</span></span>
+            </div>
+        </div>
+
+        <!-- ===== GIBRALTAR ===== -->
+        <h2 class="section-title">🇬🇮 GIBRALTAR — Jours 4, 5 et 6</h2>
+
+        <!-- Infos pratiques Gibraltar -->
+        <div class="info-pratique-grid">
+            <div class="info-card">
+                <h4>🪪 Entrée &amp; Documents</h4>
+                <ul>
+                    <li>🇫🇷 Carte nationale d'identité française suffit</li>
+                    <li>🚗 Laisser la voiture à La Línea (~8–12 €/jour)</li>
+                    <li>🚶 Traverser la frontière à pied</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>💷 Monnaie &amp; Urgences</h4>
+                <ul>
+                    <li>💷 Livre sterling (£), euros acceptés</li>
+                    <li>🏧 Retirer ~50–100 £ sur place</li>
+                    <li>🆘 Numéro d'urgence : <strong>112</strong></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>🏨 Hôtels à Gibraltar</h4>
+                <ul>
+                    <li>⭐ <strong>Rock Hotel</strong> — 3 Europa Road <span class="price-tag paid">90–130 £/nuit</span></li>
+                    <li>💡 <strong>Cannon Hotel</strong> — Centre <span class="price-tag paid">70–90 £/nuit</span></li>
+                    <li>💡 <strong>Bristol Hotel</strong> — Centre <span class="price-tag paid">80–100 £/nuit</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- JOUR 4 -->
+        <div class="day-card gibraltar">
+            <span class="phase-badge gibraltar">Gibraltar</span>
+            <h3>🦍 JOUR 4 — Le Rocher et les Singes de Barbarie</h3>
+
+            <div class="visit-item">
+                <span class="visit-icon">🚡</span>
+                <span>Téléphérique (Cable Car) — montée au sommet <span class="price-tag paid">~15 £ A/R</span></span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🦍</span>
+                <span>Singes de Barbarie — inclus dans le billet Upper Rock <span class="price-tag paid">~15–20 £</span></span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🌍</span>
+                <span>Vue panoramique — <strong>Afrique visible par temps clair !</strong></span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🛍️</span>
+                <span>Main Street — promenade et souvenirs</span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🌿</span>
+                <span>Jardins d'Alameda — repos <span class="price-tag free">gratuit</span></span>
+            </div>
+            <div class="tip-box">
+                <strong>🍽️ Dîner :</strong> The Clipper (Irish Town) <span class="price-tag paid">~12–15 £</span> ou Casemates Square
+            </div>
+        </div>
+
+        <!-- JOUR 5 -->
+        <div class="day-card gibraltar">
+            <span class="phase-badge gibraltar">Gibraltar</span>
+            <h3>🕳️ JOUR 5 — Grottes et Histoire</h3>
+
+            <div class="visit-item">
+                <span class="visit-icon">🪨</span>
+                <span>Grottes de Saint-Michel — stalactites spectaculaires — inclus dans billet Upper Rock, audioguide en français disponible</span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🪖</span>
+                <span>Tunnels de la Seconde Guerre mondiale — inclus dans billet Upper Rock</span>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ Chaussures confortables recommandées</strong>
+            </div>
+            <div class="tip-box">
+                <strong>🍽️ Dîner :</strong> Sacarello's (cuisine méditerranéenne) <span class="price-tag paid">~15–20 £</span>
+            </div>
+        </div>
+
+        <!-- JOUR 6 -->
+        <div class="day-card gibraltar">
+            <span class="phase-badge gibraltar">Gibraltar</span>
+            <h3>🏁 JOUR 6 — Europa Point et Shopping</h3>
+
+            <div class="visit-item">
+                <span class="visit-icon">🏮</span>
+                <span>Phare d'Europa Point — point le plus méridional, vue sur le Maroc <span class="price-tag free">gratuit</span> (bus <span class="price-tag paid">~2 £</span>)</span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🕌</span>
+                <span>Mosquée Ibrahim-al-Ibrahim — architecture impressionnante <span class="price-tag free">gratuit (extérieur)</span></span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🛒</span>
+                <span>Main Street — duty-free (alcool, parfums moins chers qu'en France)</span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">☕</span>
+                <span>Casemates Square — dernier café en terrasse</span>
+            </div>
+            <div class="tip-box">
+                <strong>🍽️ Dîner :</strong> The Waterfront (Queensway Quay Marina) <span class="price-tag paid">~20–25 £</span> — vue sur le port
+            </div>
+        </div>
+
+        <!-- ===== RETOUR ===== -->
+        <h2 class="section-title">🔄 RETOUR — Jours 7 à 10</h2>
+
+        <!-- JOUR 7 -->
+        <div class="day-card retour">
+            <span class="phase-badge retour">Retour</span>
+            <h3>🚗 JOUR 7 — La Línea → Séville <small style="font-weight:400; color:#666;">(~220 km, ~3h)</small></h3>
+
+            <div class="hotel-box">
+                <strong>🏨 Hôtel :</strong><br>
+                <div class="visit-item">
+                    <span class="visit-icon">⭐</span>
+                    <span><strong>Ibis Sevilla</strong> — Calle Arjona, 4, 41001 Séville <span class="price-tag paid">75–100 €/nuit</span></span>
+                </div>
+            </div>
+
+            <strong>🏛️ Visites à Séville :</strong>
+            <div class="visit-item">
+                <span class="visit-icon">⛪</span>
+                <span>Cathédrale de Séville + Giralda <span class="price-tag paid">~12 €</span> — audioguide en français</span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🏘️</span>
+                <span>Quartier de Santa Cruz <span class="price-tag free">gratuit</span></span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🏰</span>
+                <span>Alcázar de Séville (UNESCO) <span class="price-tag paid">~14,50 €</span> — audioguide en français</span>
+            </div>
+        </div>
+
+        <!-- JOUR 8 -->
+        <div class="day-card retour">
+            <span class="phase-badge retour">Retour</span>
+            <h3>🚗 JOUR 8 — Séville → Tolède <small style="font-weight:400; color:#666;">(~530 km, ~5h30)</small></h3>
+
+            <div class="hotel-box">
+                <strong>🏨 Hôtel :</strong><br>
+                <div class="visit-item">
+                    <span class="visit-icon">⭐</span>
+                    <span><strong>Ibis Toledo</strong> — Carretera de Circunvalación, 15, 45004 Tolède <span class="price-tag paid">65–85 €/nuit</span></span>
+                </div>
+            </div>
+
+            <strong>🏛️ Visites à Tolède :</strong>
+            <div class="visit-item">
+                <span class="visit-icon">⛪</span>
+                <span>Cathédrale Primatiale <span class="price-tag paid">~12,50 €</span> — audioguide en français</span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🏰</span>
+                <span>Alcázar de Tolède <span class="price-tag paid">~5 €</span></span>
+            </div>
+            <div class="visit-item">
+                <span class="visit-icon">🌄</span>
+                <span>Mirador del Valle (vue panoramique) <span class="price-tag free">gratuit</span></span>
+            </div>
+        </div>
+
+        <!-- JOUR 9 -->
+        <div class="day-card retour">
+            <span class="phase-badge retour">Retour</span>
+            <h3>🚗 JOUR 9 — Tolède → Burgos → Bordeaux</h3>
+
+            <div class="route-info">
+                <strong>🗺️ Itinéraire :</strong> Tolède → Burgos (~300 km, ~3h) → Bordeaux (~500 km, ~5h)<br>
+                <strong>🏨 Nuit à Bordeaux :</strong> Ibis Bordeaux (déjà connu du Jour 1)
+            </div>
+        </div>
+
+        <!-- JOUR 10 -->
+        <div class="day-card retour">
+            <span class="phase-badge retour">Retour maison</span>
+            <h3>🏠 JOUR 10 — Bordeaux → Mayenne <small style="font-weight:400; color:#666;">(~430 km, ~5h)</small></h3>
+
+            <div class="route-info">
+                <strong>🗺️ Itinéraire :</strong> Bordeaux → Poitiers → Tours → Le Mans → Mayenne (A10/A28/A81)<br>
+                <strong>🍽️ Pause déjeuner</strong> à Poitiers ou Tours<br>
+                <strong>🏡 Arrivée</strong> à Mayenne en début d'après-midi
+            </div>
+        </div>
+
+        <!-- ===== CONSEILS PRATIQUES ===== -->
+        <h2 class="section-title">💡 Conseils Pratiques Essentiels</h2>
+
+        <div class="info-pratique-grid">
+            <div class="info-card">
+                <h4>🪪 Documents à emporter</h4>
+                <ul>
+                    <li>🪪 Carte nationale d'identité française — <strong>obligatoire</strong> (suffit pour Espagne + Gibraltar)</li>
+                    <li>🚗 Permis de conduire — <strong>obligatoire</strong></li>
+                    <li>📄 Carte grise + attestation assurance — <strong>obligatoire</strong></li>
+                    <li>🏥 Carte Européenne d'Assurance Maladie (CEAM) — très recommandé (gratuite, ameli.fr)</li>
+                    <li>⚠️ La CEAM n'est <strong>pas valable à Gibraltar</strong> (territoire britannique). Vérifiez votre mutuelle.</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>🚗 Conduire en Espagne</h4>
+                <ul>
+                    <li>🏎️ Vitesse autoroute : <strong>120 km/h</strong></li>
+                    <li>✅ Pas de vignette obligatoire en Espagne</li>
+                    <li>✅ La plupart des autoroutes espagnoles sont <strong>gratuites depuis 2020</strong></li>
+                    <li>🦺 Gilet jaune et triangles de signalisation obligatoires dans le véhicule</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>📱 Applications utiles</h4>
+                <ul>
+                    <li>🌐 <strong>Google Translate</strong> — télécharger espagnol + anglais hors ligne avant le départ</li>
+                    <li>🗺️ <strong>Google Maps</strong> — télécharger les cartes hors ligne pour l'Espagne</li>
+                    <li>🏨 <strong>Booking.com</strong> — réservation d'hôtels en français</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>🏥 Santé</h4>
+                <ul>
+                    <li>💊 Emporter vos médicaments habituels pour 12 jours (+ 2 jours de marge)</li>
+                    <li>⏱️ Pauses toutes les <strong>2 heures</strong> de conduite</li>
+                    <li>🆘 Numéro d'urgence européen : <strong>112</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ===== BUDGET ===== -->
+        <h2 class="section-title">💶 Budget Estimatif Total</h2>
+        <div class="budget-table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Poste</th>
+                        <th>Estimation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🏨 Hôtels (9 nuits)</td>
+                        <td>600–900 €</td>
+                    </tr>
+                    <tr>
+                        <td>⛽ Carburant (~3 000 km aller-retour)</td>
+                        <td>250–350 €</td>
+                    </tr>
+                    <tr>
+                        <td>🛣️ Péages (France principalement)</td>
+                        <td>80–120 €</td>
+                    </tr>
+                    <tr>
+                        <td>🍽️ Repas</td>
+                        <td>400–600 €</td>
+                    </tr>
+                    <tr>
+                        <td>🎟️ Visites et entrées</td>
+                        <td>100–150 €</td>
+                    </tr>
+                    <tr>
+                        <td>🎁 Divers (parking, souvenirs, imprévus)</td>
+                        <td>100–200 €</td>
+                    </tr>
+                    <tr class="budget-total">
+                        <td>💰 TOTAL ESTIMÉ</td>
+                        <td>1 530–2 320 €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ===== CHECKLIST ===== -->
+        <h2 class="section-title">✅ Liste de Contrôle Avant le Départ</h2>
+        <div class="checklist">
+            <ul>
+                <li>Carte nationale d'identité valide (vérifier la date d'expiration !)</li>
+                <li>Demander la CEAM à votre CPAM (ameli.fr) — au moins 2 semaines avant</li>
+                <li>Vérifier que l'assurance voiture couvre l'Espagne et Gibraltar</li>
+                <li>Réserver les hôtels à l'avance (surtout en haute saison)</li>
+                <li>Télécharger Google Translate hors ligne (espagnol + anglais)</li>
+                <li>Emporter médicaments habituels + ordonnances</li>
+                <li>Gilet jaune et triangles de signalisation dans le coffre</li>
+                <li>Prévoir ~50–100 £ en espèces pour Gibraltar</li>
+                <li>Chapeau, crème solaire, bouteille d'eau réutilisable</li>
+            </ul>
+        </div>
+
+        <!-- Meilleure période -->
+        <div class="best-period">
+            🌤️ <strong>Meilleure période recommandée :</strong> Avril-Mai ou Septembre-Octobre<br>
+            <span style="font-weight:400; font-size:0.9rem;">Pour éviter la chaleur excessive du sud de l'Espagne (35–40°C en été)</span>
+        </div>
+
+    </div><!-- Fin du conteneur principal -->
+
+    <footer>
+        <p>Bon voyage vers Gibraltar ! 🇬🇮 Profitez bien du Rocher et des singes de Barbarie.</p>
+    </footer>
+
+    <script>
+        // Améliorer le défilement sur les appareils tactiles
+        document.addEventListener('DOMContentLoaded', function() {
+            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+                document.body.classList.add('touch-device');
+                const tables = document.querySelectorAll('table');
+                tables.forEach(function(table) {
+                    table.addEventListener('touchstart', function() {
+                        this.classList.add('active-touch');
+                    });
+                    table.addEventListener('touchend', function() {
+                        this.classList.remove('active-touch');
+                    });
+                });
+            }
+            // Orientation
+            window.addEventListener('orientationchange', function() {
+                location.reload();
+            });
+            if (window.matchMedia("(orientation: portrait)").matches) {
+                document.body.classList.add('portrait');
+            } else {
+                document.body.classList.add('landscape');
+            }
+        });
+    </script>
+
+</body>
+</html>

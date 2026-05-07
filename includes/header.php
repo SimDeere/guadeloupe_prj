@@ -140,8 +140,9 @@ $page_title = isset($page_title) ? get_page_title($page_title) : get_page_title(
         <p class="subtitle"><?php echo $site_config['site_subtitle']; ?></p>
         
         <nav class="main-nav">
-            <a href="index.php" class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">Planning</a>
-            <a href="liste_affaires.php" class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'liste_affaires.php' ? 'active' : ''; ?>">Liste des affaires</a>
+            <a href="index.php" class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">🌴 Planning</a>
+            <a href="liste_affaires.php" class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'liste_affaires.php' ? 'active' : ''; ?>">🧳 Liste des affaires</a>
+            <a href="gibraltar.html" class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'gibraltar.html' ? 'active' : ''; ?>">🇬🇮 Gibraltar</a>
             <div class="print-links">
                 <?php if (basename($_SERVER['PHP_SELF']) == 'index.php'): ?>
                     <a href="planning_print.php" class="print-link" target="_blank" title="Version imprimable">
