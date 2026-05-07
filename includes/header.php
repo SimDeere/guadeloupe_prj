@@ -154,6 +154,11 @@ $page_title = isset($page_title) ? get_page_title($page_title) : get_page_title(
                         <img src="images/print-icon.png" alt="Imprimer" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22><path fill=%22%23333%22 d=%22M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z%22/></svg>'">
                         Version imprimable
                     </a>
+                <?php elseif (basename($_SERVER['PHP_SELF']) == 'gibraltar.html'): ?>
+                    <a href="gibraltar_print.html" class="print-link" target="_blank" title="Version imprimable">
+                        <img src="images/print-icon.png" alt="Imprimer" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22><path fill=%22%23333%22 d=%22M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z%22/></svg>'">
+                        Version imprimable
+                    </a>
                 <?php endif; ?>
             </div>
         </nav>

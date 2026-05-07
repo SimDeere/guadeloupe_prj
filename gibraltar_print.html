@@ -2,31 +2,22 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Voyage Mayenne → Gibraltar — Planning 10 Jours</title>
-
-    <!-- Meta tags pour iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Gibraltar">
-    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyage Mayenne → Gibraltar — Version imprimable</title>
 
     <!-- Préchargement des polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Feuilles de style du site -->
+    <!-- Feuille de style principale -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/caribbean-background.css">
-    <link rel="stylesheet" href="css/desktop.css">
 
-    <!-- Meta SEO -->
-    <meta name="description" content="Planning de voyage en voiture Mayenne → Gibraltar, 10 jours, pour senior francophone.">
-    <meta name="author" content="Voyageurs Guadeloupe">
+    <!-- Feuille de style pour l'impression -->
+    <link rel="stylesheet" href="css/print.css">
 
     <style>
-        /* Variables CSS du thème (identiques au site principal) */
+        /* Variables CSS du thème */
         :root {
             --primary-color: #0077b6;
             --secondary-color: #00b4d8;
@@ -37,31 +28,85 @@
             --dark-text: #264653;
         }
 
-        /* Styles spécifiques à cette page */
-        .section-title {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin: 30px 0 15px 0;
-            padding-bottom: 8px;
-            border-bottom: 3px solid var(--accent-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* Styles spécifiques à la version imprimable */
+        body.print-body {
+            background: white;
+            color: black;
+            font-family: 'Poppins', sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
         }
 
+        .print-container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 10mm;
+            box-sizing: border-box;
+        }
+
+        .print-header {
+            text-align: center;
+            border-bottom: 2px solid #0077b6;
+            padding: 8mm 0 5mm;
+            margin-bottom: 8mm;
+        }
+
+        .print-header h1 {
+            font-size: 20pt;
+            color: #0077b6;
+            margin: 0 0 3mm 0;
+        }
+
+        .print-header .print-subtitle {
+            font-size: 11pt;
+            color: #555;
+            margin: 0 0 2mm 0;
+        }
+
+        .print-header .print-date {
+            font-size: 9pt;
+            color: #888;
+            margin: 0;
+        }
+
+        .print-footer {
+            text-align: center;
+            border-top: 1px solid #ccc;
+            padding: 5mm 0;
+            margin-top: 8mm;
+            font-size: 9pt;
+            color: #888;
+        }
+
+        /* Sections */
+        .section-title {
+            font-size: 14pt;
+            color: var(--primary-color);
+            margin: 8mm 0 4mm 0;
+            padding-bottom: 2mm;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        /* Tableau de vue d'ensemble */
+        .overview-table-wrapper {
+            margin-bottom: 6mm;
+        }
+
+        /* Cartes de jours */
         .day-card {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            padding: 20px 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border-left: 5px solid var(--primary-color);
+            border: 1px solid #ccc;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 4px;
+            padding: 4mm 5mm;
+            margin-bottom: 5mm;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
         .day-card.gibraltar {
-            border-left-color: #c8102e; /* Rouge Gibraltar */
+            border-left-color: #c8102e;
         }
 
         .day-card.retour {
@@ -69,12 +114,9 @@
         }
 
         .day-card h3 {
+            font-size: 12pt;
+            margin: 0 0 3mm 0;
             color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .day-card.gibraltar h3 {
@@ -85,143 +127,16 @@
             color: var(--green-color);
         }
 
-        .route-info {
-            background-color: rgba(0, 119, 182, 0.08);
-            border-radius: 8px;
-            padding: 10px 15px;
-            margin: 10px 0;
-            font-size: 0.95rem;
-        }
-
-        .hotel-box {
-            background-color: rgba(255, 209, 102, 0.2);
-            border-radius: 8px;
-            padding: 10px 15px;
-            margin: 10px 0;
-            border-left: 3px solid var(--accent-color);
-        }
-
-        .hotel-box strong {
-            color: var(--dark-text);
-        }
-
-        .visit-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            padding: 6px 0;
-            border-bottom: 1px dashed #e0e0e0;
-        }
-
-        .visit-item:last-child {
-            border-bottom: none;
-        }
-
-        .visit-icon {
-            font-size: 1.1em;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .price-tag {
-            display: inline-block;
-            background-color: rgba(42, 157, 143, 0.15);
-            color: var(--green-color);
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-left: 6px;
-        }
-
-        .price-tag.free {
-            background-color: rgba(42, 157, 143, 0.15);
-            color: var(--green-color);
-        }
-
-        .price-tag.paid {
-            background-color: rgba(231, 111, 81, 0.15);
-            color: var(--red-color);
-        }
-
-        .warning-box {
-            background-color: rgba(231, 111, 81, 0.1);
-            border-left: 4px solid var(--red-color);
-            border-radius: 0 8px 8px 0;
-            padding: 10px 15px;
-            margin: 10px 0;
-            color: var(--dark-text);
-        }
-
-        .warning-box strong {
-            color: var(--red-color);
-        }
-
-        .tip-box {
-            background-color: rgba(0, 180, 216, 0.1);
-            border-left: 4px solid var(--secondary-color);
-            border-radius: 0 8px 8px 0;
-            padding: 10px 15px;
-            margin: 10px 0;
-        }
-
-        .overview-table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .budget-table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .budget-total td {
-            background-color: rgba(0, 119, 182, 0.1) !important;
-            font-weight: 700;
-            color: var(--primary-color) !important;
-            font-size: 1.05rem;
-        }
-
-        .checklist {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            padding: 20px 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .checklist ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .checklist ul li {
-            padding: 7px 0;
-            border-bottom: 1px dashed #e0e0e0;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .checklist ul li:last-child {
-            border-bottom: none;
-        }
-
-        .checklist ul li::before {
-            content: "☐";
-            font-size: 1.2em;
-            color: var(--primary-color);
-            flex-shrink: 0;
-        }
-
+        /* Badges de phase */
         .phase-badge {
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 1mm 3mm;
+            border-radius: 10px;
+            font-size: 8pt;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            margin-bottom: 2mm;
         }
 
         .phase-badge.aller {
@@ -239,37 +154,111 @@
             color: white;
         }
 
+        /* Boîtes d'info */
+        .route-info {
+            background-color: #f0f7ff;
+            border-radius: 4px;
+            padding: 2mm 3mm;
+            margin: 2mm 0;
+            font-size: 10pt;
+        }
+
+        .hotel-box {
+            background-color: #fffbea;
+            border-left: 3px solid var(--accent-color);
+            border-radius: 0 4px 4px 0;
+            padding: 2mm 3mm;
+            margin: 2mm 0;
+        }
+
+        .warning-box {
+            background-color: #fff0ec;
+            border-left: 3px solid var(--red-color);
+            border-radius: 0 4px 4px 0;
+            padding: 2mm 3mm;
+            margin: 2mm 0;
+            font-size: 10pt;
+        }
+
+        .tip-box {
+            background-color: #f0fbff;
+            border-left: 3px solid var(--secondary-color);
+            border-radius: 0 4px 4px 0;
+            padding: 2mm 3mm;
+            margin: 2mm 0;
+            font-size: 10pt;
+        }
+
+        /* Éléments de visite */
+        .visit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 4px;
+            padding: 1mm 0;
+            border-bottom: 1px dashed #e0e0e0;
+            font-size: 10pt;
+        }
+
+        .visit-item:last-child {
+            border-bottom: none;
+        }
+
+        .visit-icon {
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Tags de prix */
+        .price-tag {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 8pt;
+            padding: 0 2mm;
+            border-radius: 2px;
+            margin-left: 2mm;
+        }
+
+        .price-tag.free {
+            background-color: rgba(42, 157, 143, 0.15);
+            color: #2a9d8f;
+        }
+
+        .price-tag.paid {
+            background-color: rgba(231, 111, 81, 0.15);
+            color: #e76f51;
+        }
+
+        /* Grille d'infos pratiques */
         .info-pratique-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-            margin: 15px 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4mm;
+            margin: 4mm 0;
         }
 
         .info-card {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 15px 18px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 3mm 4mm;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
         .info-card h4 {
             color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            font-size: 10pt;
+            margin: 0 0 2mm 0;
         }
 
         .info-card ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .info-card ul li {
-            padding: 4px 0;
-            font-size: 0.92rem;
+            padding: 1mm 0;
+            font-size: 9pt;
             border-bottom: 1px dashed #eee;
         }
 
@@ -277,86 +266,88 @@
             border-bottom: none;
         }
 
+        /* Tableau budget */
+        .budget-table-wrapper {
+            margin: 4mm 0;
+        }
+
+        .budget-total td {
+            background-color: rgba(0, 119, 182, 0.1) !important;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+
+        /* Checklist */
+        .checklist {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4mm 5mm;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .checklist ul li {
+            padding: 2mm 0;
+            border-bottom: 1px dashed #e0e0e0;
+            display: flex;
+            align-items: flex-start;
+            gap: 4mm;
+            font-size: 10pt;
+        }
+
+        .checklist ul li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist ul li::before {
+            content: "☐";
+            font-size: 12pt;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        /* Meilleure période */
         .best-period {
-            background: linear-gradient(135deg, rgba(255, 209, 102, 0.3), rgba(0, 180, 216, 0.2));
-            border-radius: 12px;
-            padding: 18px 22px;
-            margin: 20px 0;
+            border: 2px solid var(--accent-color);
+            border-radius: 4px;
+            padding: 4mm 5mm;
+            margin: 5mm 0;
             text-align: center;
-            font-size: 1rem;
+            font-size: 10pt;
             font-weight: 600;
             color: var(--dark-text);
-            border: 2px solid var(--accent-color);
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
-        /* Styles print */
-        .print-links {
-            display: inline-block;
-            margin-left: 20px;
+        /* Forcer l'affichage des couleurs */
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
         }
 
-        .print-link {
-            display: inline-flex;
-            align-items: center;
-            background-color: #f0f0f0;
-            color: #333;
-            padding: 5px 10px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.9em;
-            border: 1px solid #ddd;
-            transition: all 0.2s ease;
-        }
-
-        .print-link:hover {
-            background-color: #e0e0e0;
-            border-color: #ccc;
-        }
-
+        /* Masquer les éléments non imprimables */
         @media print {
-            .print-links { display: none; }
-            .day-card { break-inside: avoid; }
-        }
-
-        @media (max-width: 576px) {
-            .info-pratique-grid {
-                grid-template-columns: 1fr;
-            }
-            .day-card {
-                padding: 15px;
-            }
-            .section-title {
-                font-size: 1.3rem;
-            }
+            .no-print { display: none !important; }
         }
     </style>
 </head>
-<body class="desktop">
+<body class="print-body">
 
-    <header>
-        <h1>🗺️ Mayenne → Gibraltar</h1>
-        <p class="subtitle">10 Jours en Voiture • Planning Complet</p>
-
-        <nav class="main-nav">
-            <a href="index.php" class="nav-item">🌴 Planning Guadeloupe</a>
-            <a href="liste_affaires.php" class="nav-item">🧳 Liste des affaires</a>
-            <a href="gibraltar.html" class="nav-item active">🇬🇮 Gibraltar</a>
-            <div class="print-links">
-                <a href="gibraltar_print.html" class="print-link" target="_blank" title="Version imprimable">
-                    <img src="images/print-icon.png" alt="Imprimer" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22><path fill=%22%23333%22 d=%22M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z%22/></svg>'">
-                    Version imprimable
-                </a>
-            </div>
-        </nav>
-
-        <div class="info-box">
-            <h3>ℹ️ Informations du voyage</h3>
-            <p>👤 Senior francophone, 70 ans &nbsp;|&nbsp; 🚗 Voiture personnelle</p>
-            <p>💶 Budget : Économique / Milieu de gamme &nbsp;|&nbsp; 📅 10 jours</p>
-        </div>
+<div class="container print-container">
+    <header class="print-header">
+        <h1>🗺️ Voyage Mayenne → Gibraltar</h1>
+        <p class="print-subtitle">10 Jours en Voiture • Planning Complet • Senior francophone, 70 ans</p>
+        <p class="print-date">Document imprimé le <span id="print-date"></span></p>
     </header>
 
-    <div class="container">
+    <main>
 
         <!-- VUE D'ENSEMBLE -->
         <h2 class="section-title">📋 Vue d'ensemble du voyage</h2>
@@ -445,7 +436,7 @@
                 </div>
                 <div class="visit-item">
                     <span class="visit-icon">💡</span>
-                    <span>Alternative : <strong>B&B Hôtel Bordeaux Centre Gare Saint-Jean</strong> <span class="price-tag paid">55–70 €/nuit</span></span>
+                    <span>Alternative : <strong>B&amp;B Hôtel Bordeaux Centre Gare Saint-Jean</strong> <span class="price-tag paid">55–70 €/nuit</span></span>
                 </div>
             </div>
 
@@ -514,7 +505,7 @@
                 </div>
             </div>
 
-            <div class="hotel-box" style="border-left-color: var(--green-color); background-color: rgba(42,157,143,0.08);">
+            <div class="hotel-box" style="border-left-color: #2a9d8f; background-color: rgba(42,157,143,0.08);">
                 <strong>🏨 Hôtel à Cordoue (option recommandée) :</strong><br>
                 <div class="visit-item">
                     <span class="visit-icon">⭐</span>
@@ -730,11 +721,11 @@
             <div class="info-card">
                 <h4>🪪 Documents à emporter</h4>
                 <ul>
-                    <li>🪪 Carte nationale d'identité française — <strong>obligatoire</strong> (suffit pour Espagne + Gibraltar)</li>
+                    <li>🪪 Carte nationale d'identité française — <strong>obligatoire</strong></li>
                     <li>🚗 Permis de conduire — <strong>obligatoire</strong></li>
                     <li>📄 Carte grise + attestation assurance — <strong>obligatoire</strong></li>
-                    <li>🏥 Carte Européenne d'Assurance Maladie (CEAM) — très recommandé (gratuite, ameli.fr)</li>
-                    <li>⚠️ La CEAM n'est <strong>pas valable à Gibraltar</strong> (territoire britannique). Vérifiez votre mutuelle.</li>
+                    <li>🏥 Carte Européenne d'Assurance Maladie (CEAM) — très recommandé</li>
+                    <li>⚠️ La CEAM n'est <strong>pas valable à Gibraltar</strong>. Vérifiez votre mutuelle.</li>
                 </ul>
             </div>
             <div class="info-card">
@@ -743,13 +734,13 @@
                     <li>🏎️ Vitesse autoroute : <strong>120 km/h</strong></li>
                     <li>✅ Pas de vignette obligatoire en Espagne</li>
                     <li>✅ La plupart des autoroutes espagnoles sont <strong>gratuites depuis 2020</strong></li>
-                    <li>🦺 Gilet jaune et triangles de signalisation obligatoires dans le véhicule</li>
+                    <li>🦺 Gilet jaune et triangles de signalisation obligatoires</li>
                 </ul>
             </div>
             <div class="info-card">
                 <h4>📱 Applications utiles</h4>
                 <ul>
-                    <li>🌐 <strong>Google Translate</strong> — télécharger espagnol + anglais hors ligne avant le départ</li>
+                    <li>🌐 <strong>Google Translate</strong> — télécharger espagnol + anglais hors ligne</li>
                     <li>🗺️ <strong>Google Maps</strong> — télécharger les cartes hors ligne pour l'Espagne</li>
                     <li>🏨 <strong>Booking.com</strong> — réservation d'hôtels en français</li>
                 </ul>
@@ -829,38 +820,22 @@
             <span style="font-weight:400; font-size:0.9rem;">Pour éviter la chaleur excessive du sud de l'Espagne (35–40°C en été)</span>
         </div>
 
-    </div><!-- Fin du conteneur principal -->
+    </main>
 
-    <footer>
-        <p>Bon voyage vers Gibraltar ! 🇬🇮 Profitez bien du Rocher et des singes de Barbarie.</p>
+    <footer class="print-footer">
+        <p>Voyage Mayenne → Gibraltar — Planning imprimable</p>
     </footer>
+</div>
 
-    <script>
-        // Améliorer le défilement sur les appareils tactiles
-        document.addEventListener('DOMContentLoaded', function() {
-            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-                document.body.classList.add('touch-device');
-                const tables = document.querySelectorAll('table');
-                tables.forEach(function(table) {
-                    table.addEventListener('touchstart', function() {
-                        this.classList.add('active-touch');
-                    });
-                    table.addEventListener('touchend', function() {
-                        this.classList.remove('active-touch');
-                    });
-                });
-            }
-            // Orientation
-            window.addEventListener('orientationchange', function() {
-                location.reload();
-            });
-            if (window.matchMedia("(orientation: portrait)").matches) {
-                document.body.classList.add('portrait');
-            } else {
-                document.body.classList.add('landscape');
-            }
-        });
-    </script>
+<script>
+    // Afficher la date d'impression
+    document.getElementById('print-date').textContent = new Date().toLocaleDateString('fr-FR');
+
+    // Déclencher automatiquement l'impression
+    window.onload = function() {
+        window.print();
+    };
+</script>
 
 </body>
 </html>
